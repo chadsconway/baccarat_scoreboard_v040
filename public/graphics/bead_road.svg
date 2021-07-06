@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 1500 300" preserveAspectRatio="none" width="1500px" height="300px" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="46.718" y1="147.939" x2="46.718" y2="247.939" id="gradient-0" gradientTransform="matrix(-0.99966, -0.02596, 0.03265, -1.25789, 186.43257, 401.55717)">
+      <stop offset="0" style="stop-color: rgb(133, 7, 7);"/>
+      <stop offset="0.726" style="stop-color: rgb(202, 130, 130);"/>
+      <stop offset="1" style="stop-color: rgb(192, 21, 21);"/>
+    </linearGradient>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="150.306" cy="197.738" r="50" id="gradient-1" gradientTransform="matrix(-1.43477, -0.05077, 0.03736, -1.05605, 360.98981, 333.80935)">
+      <stop offset="0" style="stop-color: rgb(133, 7, 7);"/>
+      <stop offset="0.941" style="stop-color: rgb(202, 130, 130);"/>
+      <stop offset="1" style="stop-color: rgb(192, 21, 21);"/>
+    </radialGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="150" y1="100" x2="150" y2="200" id="gradient-2" gradientTransform="matrix(-0.99997, 0.00785, -0.01088, -1.38846, 305.43605, 348.66004)">
+      <stop offset="0" style="stop-color: rgb(133, 7, 7);"/>
+      <stop offset="0.317" style="stop-color: rgb(164, 6, 6);"/>
+      <stop offset="0.547" style="stop-color: rgb(236, 205, 205);"/>
+      <stop offset="0.798" style="stop-color: rgb(248, 232, 232);"/>
+      <stop offset="1" style="stop-color: rgb(192, 21, 21);"/>
+    </linearGradient>
+    <bx:grid x="0" y="0" width="50" height="50"/>
+  </defs>
+  <g>
+    <title>Horizontal_Lines</title>
+    <line style="stroke: rgb(0, 0, 0);" x1="0" y1="0" x2="1500" y2="0"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="0" y1="50" x2="1500" y2="50"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="0" y1="100" x2="1500" y2="100"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="1" y1="150" x2="1500" y2="150"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="0" y1="200" x2="1499.999" y2="200"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="-0.001" y1="250" x2="1499.999" y2="250"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="0.999" y1="300" x2="1499.999" y2="300"/>
+  </g>
+  <g>
+    <title>Vertical_Lines</title>
+    <line style="stroke: rgb(0, 0, 0);" x1="0" y1="0" x2="1" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="50" y1="0" x2="50" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="100" y1="0" x2="100" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="150" y1="0" x2="150" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="200" y1="0" x2="200" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="250" y1="0" x2="250" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="299" y1="0" x2="299" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="349" y1="0" x2="349" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="399" y1="0" x2="399" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="449" y1="0" x2="449" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="502" y1="0" x2="502" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="551" y1="0" x2="551" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="601" y1="0" x2="601" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="651" y1="0" x2="651" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="701" y1="0" x2="701" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="751" y1="0" x2="751" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="800" y1="0" x2="800" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="850" y1="0" x2="850" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="900" y1="0" x2="900" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="950" y1="0" x2="950" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="1000" y1="0" x2="1000" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="1049" y1="0" x2="1049" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="1099" y1="0" x2="1099" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="1149" y1="0" x2="1149" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="1199" y1="0" x2="1199" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="1249" y1="0" x2="1249" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="1298" y1="0" x2="1298" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="1348" y1="0" x2="1348" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="1398" y1="0" x2="1398" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="1448" y1="0" x2="1448" y2="300"/>
+    <line style="stroke: rgb(0, 0, 0);" x1="1499.998" y1="0" x2="1499.998" y2="300"/>
+  </g>
+</svg>
