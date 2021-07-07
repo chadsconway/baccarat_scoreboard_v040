@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partial__Header</title>
+    <style>
+      .header-wrapper {
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <?xml version="1.0" encoding="utf-8"?>
+      <svg
+        viewBox="0 0 500 500"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:bx="https://boxy-svg.com"
+      >
+        <defs>
+          <linearGradient id="color-0" bx:pinned="true">
+            <title>Banker</title>
+            <stop style="stop-color: rgb(240, 62, 62)" />
+          </linearGradient>
+          <linearGradient id="color-1" bx:pinned="true">
+            <title>Player</title>
+            <stop style="stop-color: rgb(34, 139, 230)" />
+          </linearGradient>
+          <linearGradient id="color-2" bx:pinned="true">
+            <title>Tie</title>
+            <stop style="stop-color: rgb(64, 192, 87)" />
+          </linearGradient>
+        </defs>
+        <g class="button-group button-group-one">
+          <title>button-group-one</title>
+          <g class="button button-banker">
+            <rect
+              x="32"
+              y="48"
+              width="72"
+              height="32"
+              style="fill: url(#color-0)"
+            />
+            <text
+              style="
+                font-family: Limelight;
+                font-size: 20px;
+                letter-spacing: -2.4px;
+                white-space: pre;
+              "
+              x="34.754"
+              y="69.909"
+              class="button-text"
+            >
+              Banker
+            </text>
+          </g>
+          <g>
+            <rect
+              x="105"
+              y="48"
+              width="72"
+              height="32"
+              style="fill: url(#color-1)"
+            />
+            <text
+              style="
+                font-family: Limelight;
+                font-size: 20px;
+                letter-spacing: -2.4px;
+                white-space: pre;
+              "
+              x="112.488"
+              y="69.909"
+              class="button-text"
+            >
+              Player
+            </text>
+          </g>
+          <g class="button button-tie">
+            <rect
+              x="178"
+              y="48"
+              width="72"
+              height="32"
+              style="fill: url(#color-2)"
+            />
+            <text
+              style="
+                font-family: Limelight;
+                font-size: 20px;
+                letter-spacing: -2.4px;
+                white-space: pre;
+              "
+              x="200.316"
+              y="69.909"
+              class="button-text"
+            >
+              Tie
+            </text>
+          </g>
+        </g>
+        <rect
+          x="4"
+          y="8"
+          width="407"
+          height="24"
+          style="stroke: rgb(0, 0, 0); fill: none"
+        />
+        <g class="button-group button-group-three">
+          <g class="button button-file">
+            <rect
+              x="411"
+              width="40"
+              height="24"
+              style="stroke: rgb(0, 0, 0); fill: none"
+              y="8"
+            />
+            <text
+              style="
+                font-family: Limelight;
+                font-size: 18px;
+                letter-spacing: -1.4px;
+                white-space: pre;
+              "
+              x="414.839"
+              y="26.517"
+              class="button-text"
+            >
+              File
+            </text>
+          </g>
+          <g class="button button-save">
+            <rect
+              x="451"
+              width="40"
+              height="24"
+              style="stroke: rgb(0, 0, 0); fill: none"
+              y="8"
+            />
+            <text
+              style="
+                font-family: Limelight;
+                font-size: 17px;
+                letter-spacing: -1.4px;
+                white-space: pre;
+              "
+              x="452.839"
+              y="27.002"
+              class="button-text"
+            >
+              Save
+            </text>
+          </g>
+        </g>
+        <g class="button-group button-group-two">
+          <g class="button button-undo">
+            <rect
+              x="257"
+              y="48"
+              width="72"
+              height="32"
+              style="fill: none; stroke: rgb(0, 0, 0)"
+            />
+            <text
+              style="
+                font-family: Limelight;
+                font-size: 20px;
+                letter-spacing: -2.4px;
+                white-space: pre;
+              "
+              x="267.965"
+              y="69.909"
+              class="button-text"
+            >
+              Undo
+            </text>
+          </g>
+          <g class="button button-redo">
+            <rect
+              x="330"
+              y="48"
+              width="72"
+              height="32"
+              style="fill: none; stroke: rgb(0, 0, 0)"
+            />
+            <text
+              style="
+                font-family: Limelight;
+                font-size: 20px;
+                letter-spacing: -2.4px;
+                white-space: pre;
+              "
+              x="342.269"
+              y="69.909"
+              class="button-text"
+            >
+              Redo
+            </text>
+          </g>
+        </g>
+        <text
+          style="
+            fill: rgb(51, 51, 51);
+            font-family: 'Montserrat Alternates';
+            font-size: 20px;
+            white-space: pre;
+          "
+          x="6.616"
+          y="26.547"
+        >
+          Bacarrat Road Analysis
+        </text>
+        <g class="button-group buttons-toggle">
+          <g
+            transform="matrix(1, 0, 0, 1, 34, -37)"
+            class="button button-mouse toggle-group-1__active"
+          >
+            <circle
+              style="fill: none; stroke: rgb(0, 0, 0)"
+              cx="424.503"
+              cy="100.499"
+              r="16"
+            />
+            <path
+              d="M 425.113 89.028 L 422.446 89.028 C 418.764 89.028 415.78 92.012 415.78 95.695 L 415.78 103.695 C 415.78 107.377 418.764 110.361 422.446 110.361 L 425.113 110.361 C 428.795 110.361 431.78 107.377 431.78 103.695 L 431.78 95.695 C 431.78 92.012 428.796 89.028 425.113 89.028 Z M 429.78 95.695 L 429.78 96.361 L 424.78 96.361 L 424.78 91.028 L 425.113 91.028 C 427.692 91.033 429.775 93.116 429.78 95.695 Z M 422.446 91.028 L 422.78 91.028 L 422.78 96.361 L 417.78 96.361 L 417.78 95.695 C 417.785 93.116 419.868 91.033 422.446 91.028 Z M 425.113 108.361 L 422.446 108.361 C 419.868 108.356 417.784 106.273 417.78 103.695 L 417.78 98.361 L 429.78 98.361 L 429.78 103.695 C 429.775 106.274 427.692 108.357 425.113 108.361 Z"
+              class="button-icon"
+            />
+          </g>
+          <g class="button button-keyboard toggle-group-1__inactive">
+            <rect
+              x="442.503"
+              y="88.767"
+              width="32"
+              height="32"
+              style="fill: none; stroke: rgb(0, 0, 0)"
+              rx="4.266"
+              ry="4.266"
+            />
+            <path
+              d="M 467.836 96.767 L 449.169 96.767 C 447.696 96.767 446.503 97.961 446.503 99.434 L 446.503 110.1 C 446.503 111.573 447.696 112.767 449.169 112.767 L 467.836 112.767 C 469.309 112.767 470.503 111.573 470.503 110.1 L 470.503 99.434 C 470.503 97.961 469.307 96.767 467.836 96.767 Z M 468.503 110.1 C 468.503 110.468 468.203 110.767 467.836 110.767 L 449.169 110.767 C 448.802 110.767 448.503 110.468 448.503 110.1 L 448.503 99.434 C 448.503 99.066 448.802 98.767 449.169 98.767 L 467.836 98.767 C 468.203 98.767 468.503 99.066 468.503 99.434 L 468.503 110.1 Z M 452.336 100.434 L 451.336 100.434 C 451.059 100.434 450.836 100.656 450.836 100.934 L 450.836 101.934 C 450.836 102.211 451.059 102.434 451.336 102.434 L 452.336 102.434 C 452.613 102.434 452.836 102.211 452.836 101.934 L 452.836 100.934 C 452.836 100.655 452.615 100.434 452.336 100.434 Z M 454.669 102.434 L 455.669 102.434 C 455.947 102.434 456.169 102.211 456.169 101.934 L 456.169 100.934 C 456.169 100.656 455.947 100.434 455.669 100.434 L 454.669 100.434 C 454.392 100.434 454.169 100.656 454.169 100.934 L 454.169 101.934 C 454.169 102.213 454.39 102.434 454.669 102.434 Z M 458.003 102.434 L 459.003 102.434 C 459.28 102.434 459.503 102.211 459.503 101.934 L 459.503 100.934 C 459.503 100.656 459.28 100.434 459.003 100.434 L 458.003 100.434 C 457.725 100.434 457.503 100.656 457.503 100.934 L 457.503 101.934 C 457.503 102.213 457.723 102.434 458.003 102.434 Z M 461.336 102.434 L 462.336 102.434 C 462.613 102.434 462.836 102.211 462.836 101.934 L 462.836 100.934 C 462.836 100.656 462.613 100.434 462.336 100.434 L 461.336 100.434 C 461.059 100.434 460.836 100.656 460.836 100.934 L 460.836 101.934 C 460.836 102.213 461.057 102.434 461.336 102.434 Z M 465.669 100.434 L 464.669 100.434 C 464.392 100.434 464.169 100.656 464.169 100.934 L 464.169 101.934 C 464.169 102.211 464.392 102.434 464.669 102.434 L 465.669 102.434 C 465.947 102.434 466.169 102.211 466.169 101.934 L 466.169 100.934 C 466.169 100.655 465.948 100.434 465.669 100.434 Z M 452.336 103.767 L 451.336 103.767 C 451.059 103.767 450.836 103.99 450.836 104.267 L 450.836 105.267 C 450.836 105.544 451.059 105.767 451.336 105.767 L 452.336 105.767 C 452.613 105.767 452.836 105.544 452.836 105.267 L 452.836 104.267 C 452.836 103.988 452.615 103.767 452.336 103.767 Z M 454.669 105.767 L 455.669 105.767 C 455.947 105.767 456.169 105.544 456.169 105.267 L 456.169 104.267 C 456.169 103.99 455.947 103.767 455.669 103.767 L 454.669 103.767 C 454.392 103.767 454.169 103.99 454.169 104.267 L 454.169 105.267 C 454.169 105.546 454.39 105.767 454.669 105.767 Z M 458.003 105.767 L 459.003 105.767 C 459.28 105.767 459.503 105.544 459.503 105.267 L 459.503 104.267 C 459.503 103.99 459.28 103.767 459.003 103.767 L 458.003 103.767 C 457.725 103.767 457.503 103.99 457.503 104.267 L 457.503 105.267 C 457.503 105.546 457.723 105.767 458.003 105.767 Z M 461.336 105.767 L 462.336 105.767 C 462.613 105.767 462.836 105.544 462.836 105.267 L 462.836 104.267 C 462.836 103.99 462.613 103.767 462.336 103.767 L 461.336 103.767 C 461.059 103.767 460.836 103.99 460.836 104.267 L 460.836 105.267 C 460.836 105.546 461.057 105.767 461.336 105.767 Z M 465.669 103.767 L 464.669 103.767 C 464.392 103.767 464.169 103.99 464.169 104.267 L 464.169 105.267 C 464.169 105.544 464.392 105.767 464.669 105.767 L 465.669 105.767 C 465.947 105.767 466.169 105.544 466.169 105.267 L 466.169 104.267 C 466.169 103.988 465.948 103.767 465.669 103.767 Z M 463.169 107.434 L 453.836 107.434 C 453.465 107.434 453.169 107.73 453.169 108.1 L 453.169 108.767 C 453.169 109.137 453.466 109.434 453.836 109.434 L 463.169 109.434 C 463.539 109.434 463.836 109.137 463.836 108.767 L 463.836 108.1 C 463.836 107.73 463.54 107.434 463.169 107.434 Z"
+              class="button-icon"
+            />
+          </g>
+        </g>
+      </svg>
+    </div>
+  </body>
+</html>

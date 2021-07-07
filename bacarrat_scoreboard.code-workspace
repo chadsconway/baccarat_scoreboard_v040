@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../SVG_PATTERNS"
+    },
+    {
+      "path": "../PY/AUTOGUI"
+    },
+    {
+      "path": "../FREELANCER/BACARRAT_SCOREBOARD"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "SVG_PATTERNS"
+  }
+}
