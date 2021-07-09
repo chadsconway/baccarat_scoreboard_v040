@@ -21,7 +21,7 @@
     <text style="font-family: &quot;Diplomata SC&quot;; font-size: 35px; white-space: pre;" x="308.596" y="440.143">B</text>
   </g>
   <g transform="matrix(0.980993, 0, 0, 1, -252.713058, -429.984009)" bx:origin="0.000002 0">
-    <title>Playter-Bead-Road-Initial</title>
+    <title>Player-Bead-Road-Initial</title>
     <circle style="fill: url(#color-0);" cx="334.148" cy="504.984" r="25" class="player-bead-road bead-road-bead"/>
     <text style="font-family: &quot;Diplomata SC&quot;; font-size: 35px; white-space: pre;" x="308.586" y="516.343">P</text>
   </g>
@@ -33,9 +33,9 @@
   <circle style="fill: rgb(240, 62, 62);" cx="25" cy="25" r="25" class="BANKER BEAD BIG_ROAD banker-bead-big-road bead-sprite__banker-column" bx:origin="0 0"/>
   <circle style="fill: url(#color-0);" cx="75" cy="25" r="25" class="player-bead-road bead-road-bead bead-sprite__player-column" bx:origin="0 0"/>
   <circle style="fill: url(#color-2);" cx="125" cy="25" r="25" class="tie-bead-road bead-road-bead bead-sprite__tie-column" bx:origin="0 0"/>
-  <circle style="fill: none; stroke: url(#color-1); stroke-width: 5px;" cx="25" cy="125" r="22.5" class="banker-bead-big-road big-road-bead"/>
-  <circle style="fill: none; stroke: url(#color-0); stroke-width: 5px;" cx="75" cy="125" r="22.5" class="player-bead-road bead-road-bead"/>
-  <circle style="fill: none; stroke: url(#color-2); stroke-width: 5px;" cx="125" cy="125" r="22.5" class="tie-big-road big-road-bead"/>
+  <circle id="bead-road-banker" style="fill: none; stroke: url(#color-1); stroke-width: 5px;" cx="25" cy="125" r="22.5" class="banker-bead-big-road big-road-bead"/>
+  <circle id="bead-road-player" style="fill: none; stroke: url(#color-0); stroke-width: 5px;" cx="75" cy="125" r="22.5" class="player-bead-road bead-road-bead"/>
+  <circle id="bead-road-tie" style="fill: none; stroke: url(#color-2); stroke-width: 5px;" cx="125" cy="125" r="22.5" class="tie-big-road big-road-bead"/>
   <circle style="fill: none; stroke: url(#color-1); stroke-width: 5px;" cx="619.227" cy="22.5" r="22.5" class="banker-bead-big-road big-road-bead"/>
   <circle style="fill: none; stroke: url(#color-0); stroke-width: 5px;" cx="619.227" cy="72.5" r="22.5" class="player-bead-road bead-road-bead"/>
   <circle style="fill: none; stroke: url(#color-2); stroke-width: 5px;" cx="619.227" cy="122.5" r="22.5" class="tie-big-road big-road-bead"/>

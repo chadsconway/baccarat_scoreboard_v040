@@ -5,7 +5,9 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var hbs = require("hbs");
 var devRouter = require("./routes/router.dev.js");
-
+var statsRoutes = require("./routes/routes.stats.js");
+var Stats = require("./app.stats");
+var stats = new Stats();
 hbs.registerPartials(__dirname + "/views/partials", function (err) {});
 // var test1 = require("./middleware/test.1");
 
@@ -25,6 +27,7 @@ app.use("/static", express.static(path.join(__dirname, "public")));
 app.use(logger("dev"));
 
 app.set("view engine", "hbs");
+app.locals.stats = stats;
 
 /**
  * Expose locals and request locals inside views
@@ -43,6 +46,7 @@ app.get("/", function (req, res) {
  * all /dev routes
  */
 app.use("/dev", devRouter);
+app.use("/stats", statsRoutes);
 /**
  * route to access test1 middleware
  */

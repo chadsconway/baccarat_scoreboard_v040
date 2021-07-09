@@ -33,8 +33,10 @@ const BEADSPRITE = [
 
 function getSprite(desc) {
   console.log(BEADSPRITE.indexOf(desc));
+  let ind = BEADSPRITE.indexOf(desc);
+  let viewBox = BSD[ind].slice(1, 5);
+  return `BEAD_SPRITE.svg#svgView(viewBox(${viewBox}))`;
+  console.log("buildRef = " + buildRef);
 }
 getSprite("pair_b");
 console.log("getSprite(beadbanker) = " + getSprite("beadbanker"));
-
-module.exports = { beadSpriteDefs, BSD, getSprite };

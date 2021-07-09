@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="color-0">
+      <title>Player</title>
+      <stop style="stop-color: rgba(34, 139, 230, 0.85);"/>
+    </linearGradient>
+    <linearGradient id="color-2">
+      <title>Tie</title>
+      <stop style="stop-color: rgba(64, 192, 87, 0.79);"/>
+    </linearGradient>
+    <linearGradient id="color-1">
+      <title>Banker</title>
+      <stop style="stop-color: rgba(240, 62, 62, 0.84);"/>
+    </linearGradient>
+  </defs>
+  <g transform="matrix(0.964727, 0, 0, 1, -297.708771, -353.781006)">
+    <title>Banker-Bead-Road-Initial</title>
+    <circle style="fill: rgb(240, 62, 62);" cx="334.508" cy="428.781" r="25" class="BANKER BEAD BIG_ROAD banker-bead-big-road"/>
+    <text style="font-family: &quot;Diplomata SC&quot;; font-size: 35px; white-space: pre;" x="308.596" y="440.143">B</text>
+  </g>
+  <g transform="matrix(0.980993, 0, 0, 1, -252.713058, -429.984009)">
+    <title>Playter-Bead-Road-Initial</title>
+    <circle style="fill: url(#color-0);" cx="334.148" cy="504.984" r="25" class="player-bead-road bead-road-bead"/>
+    <text style="font-family: &quot;Diplomata SC&quot;; font-size: 35px; white-space: pre;" x="308.586" y="516.343">P</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, -205.320007, -498.054993)">
+    <title>Tie-Bead-Road-Initial</title>
+    <circle style="fill: url(#color-2);" cx="330.32" cy="573.055" r="25" class="tie-bead-road bead-road-bead"/>
+    <text style="font-family: &quot;Diplomata SC&quot;; font-size: 35px; white-space: pre;" x="311.012" y="584.412">T</text>
+  </g>
+  <symbol id="bead-road-banker">
+  <circle style="fill: rgb(240, 62, 62);" cx="25" cy="25" r="25" class="BANKER BEAD BIG_ROAD banker-bead-big-road bead-sprite__banker-column"/>
+  </symbol>
+  <symbol id="bead-road-player">
+  <circle style="fill: url(#color-0);" cx="75" cy="25" r="25" class="player-bead-road bead-road-bead bead-sprite__player-column"/>
+  </symbol>
+  <symbol id="bead-road-tie">
+  <circle style="fill: url(#color-2);" cx="125" cy="25" r="25" class="tie-bead-road bead-road-bead bead-sprite__tie-column"/>
+  </symbol>
+  <circle style="fill: none; stroke: url(#color-1); stroke-width: 5px;" cx="25" cy="125" r="22.5" class="banker-bead-big-road big-road-bead"/>
+  <circle style="fill: none; stroke: url(#color-0); stroke-width: 5px;" cx="75" cy="125" r="22.5" class="player-bead-road bead-road-bead"/>
+  <g transform="matrix(1, 0, 0, 1, 49, 0)" class="bead-sprite__bead-road__big-road--pairs-banker">
+    <rect x="101" class="st7" width="50" height="50" style="fill: none;"/>
+    <circle class="st1" cx="111.6" cy="10.6" r="7.2" style="fill: rgb(240, 62, 62);"/>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 52.5, 0)" class="bead-sprite__bead-road__big-road--pairs-player">
+    <circle class="st8" cx="136.9" cy="89.4" r="7.2" style="fill: rgb(66, 65, 173);"/>
+    <rect x="97.5" y="50" class="st7" width="50" height="50" style="fill: none;"/>
+    <circle class="st7" cx="108.1" cy="60.6" r="7.2" style="fill: none;"/>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 50, 0)" class="bead-sprite__bead-road__big-road--pairs-both">
+    <circle class="st8" cx="139.4" cy="139.4" r="7.2" style="fill: rgb(66, 65, 173);"/>
+    <rect x="100" y="100" class="st7" width="50" height="50" style="fill: none;"/>
+    <circle class="st1" cx="110.6" cy="110.6" r="7.2" style="fill: rgb(240, 62, 62);"/>
+  </g>
+  <path d="M 0 0 L 0 0 L 0 0 L 0 0 L 0 0 Z" style="fill: rgb(216, 216, 216);"/>
+  <polyline style="fill: rgb(216, 216, 216);" points="250.148 0.187 200.069 0.187 249.903 49.53 250.148 -0.304" class="bead-sprite__bead-road--natural"/>
+  <line style="stroke: url(#color-2); stroke-width: 3px;" x1="100" y1="150" x2="150" y2="100" class="bead-sprite__big-road--tie-slash"/>
+</svg>
