@@ -1,0 +1,146 @@
+<script>
+  console.log("bead_road.hbs");
+
+</script>
+<div class="bead-road-wrapper">
+<?xml version="1.0" encoding="utf-8"?>
+<svg class="bead-road-svg" viewBox="0 0 3000 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="1500" y1="-100" x2="1500" y2="0" id="gradient-4" gradientTransform="matrix(1, 0, 0, 0.5, 0, 50)">
+      <stop offset="0" style="stop-color: rgb(63, 180, 168);"/>
+      <stop offset="1" style="stop-color: rgb(36, 48, 48);"/>
+    </linearGradient>
+  </defs>
+  <rect viewBox="0 0 3000 300" width="3000" height="300" style="fill: rgb(255, 255, 255);" y="100"/>
+  <g id="gridlines" transform="matrix(1, 0, 0, 1, 0, 100)">
+    <title>Grid</title>
+    <g>
+      <title>Horizontal_Lines</title>
+      <line style="stroke: rgb(0, 0, 0);" x1="0" y1="0" x2="1500" y2="0"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="0" y1="50" x2="1500" y2="50"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="0" y1="100" x2="1500" y2="100"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1" y1="150" x2="1500" y2="150"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="0" y1="200" x2="1499.999" y2="200"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="-0.001" y1="250" x2="1499.999" y2="250"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="0.999" y1="300" x2="1499.999" y2="300"/>
+    </g>
+    <g style="">
+      <title>Vertical_Lines</title>
+      <line style="stroke: rgb(0, 0, 0);" x1="0" y1="0" x2="1" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="50" y1="0" x2="50" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="100" y1="0" x2="100" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="150" y1="0" x2="150" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="200" y1="0" x2="200" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="250" y1="0" x2="250" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="299" y1="0" x2="299" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="349" y1="0" x2="349" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="399" y1="0" x2="399" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="449" y1="0" x2="449" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="502" y1="0" x2="502" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="551" y1="0" x2="551" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="601" y1="0" x2="601" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="651" y1="0" x2="651" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="701" y1="0" x2="701" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="751" y1="0" x2="751" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="800" y1="0" x2="800" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="850" y1="0" x2="850" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="900" y1="0" x2="900" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="950" y1="0" x2="950" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1000" y1="0" x2="1000" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1049" y1="0" x2="1049" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1099" y1="0" x2="1099" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1149" y1="0" x2="1149" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1199" y1="0" x2="1199" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1249" y1="0" x2="1249" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1298" y1="0" x2="1298" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1348" y1="0" x2="1348" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1398" y1="0" x2="1398" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1448" y1="0" x2="1448" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1499.998" y1="0" x2="1499.998" y2="300"/>
+    </g>
+  </g>
+  <rect style="fill: url(#gradient-4);" width="3000" height="50" rx="20" ry="20" visibility="hidden"/>
+  <g transform="matrix(1, 0, 0, 1, 0, 150)" class="ndc-hidden board-col-numbers reveal-on-hover" visibility="hidden">
+    <title>Column-Numbers</title>
+    <g class="column-numbers number-1">
+      <rect x="2.647" y="-102.57" width="50.001" height="50" rx="10" ry="10" style="fill: rgb(216, 216, 216);"/>
+      <text style="fill: rgb(51, 51, 51); font-family: Diplomata; font-size: 39px; white-space: pre;" x="9.619" y="-64.725">1</text>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 445, 0)" class="column-numbers number-10">
+      <rect x="4.386" y="-102.57" width="50.001" height="50" rx="10" ry="10" style="fill: rgb(216, 216, 216);"/>
+      <text style="fill: rgb(51, 51, 51); font-family: Diplomata; font-size: 24px; white-space: pre;" x="6.138" y="-69.584">10</text>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 939.995, 0)" class="column-numbers number-20">
+      <rect x="5.005" y="-102.57" width="50.001" height="50" rx="10" ry="10" style="fill: rgb(216, 216, 216);"/>
+      <text style="fill: rgb(51, 51, 51); font-family: Diplomata; font-size: 24px; white-space: pre;" x="5.269" y="-69.584">20</text>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 1440.02795, 0)" class="column-numbers number-30">
+      <rect x="5.072" y="-102.57" width="50.001" height="50" rx="10" ry="10" style="fill: rgb(216, 216, 216);"/>
+      <text style="fill: rgb(51, 51, 51); font-family: Diplomata; font-size: 24px; white-space: pre;" x="5.139" y="-69.584">30</text>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 1950, 0)" class="column-numbers number-40">
+      <rect x="4.386" y="-102.57" width="50.001" height="50" rx="10" ry="10" style="fill: rgb(216, 216, 216);"/>
+      <text style="fill: rgb(51, 51, 51); font-family: Diplomata; font-size: 24px; white-space: pre;" x="6.138" y="-69.584">40</text>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 2444.99512, 0)" class="column-numbers number-50">
+      <rect x="5.005" y="-102.57" width="50.001" height="50" rx="10" ry="10" style="fill: rgb(216, 216, 216);"/>
+      <text style="fill: rgb(51, 51, 51); font-family: Diplomata; font-size: 24px; white-space: pre;" x="5.269" y="-69.584">50</text>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 2945.02808, 0)" class="column-numbers number-60">
+      <rect x="5.072" y="-102.57" width="50.001" height="50" rx="10" ry="10" style="fill: rgb(216, 216, 216);"/>
+      <text style="fill: rgb(51, 51, 51); font-family: Diplomata; font-size: 24px; white-space: pre;" x="5.139" y="-69.584">60</text>
+    </g>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 1500, 100)">
+    <title>Grid</title>
+    <g>
+      <title>Horizontal_Lines</title>
+      <line style="stroke: rgb(0, 0, 0);" x1="0" y1="0" x2="1500" y2="0"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="0" y1="50" x2="1500" y2="50"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="0" y1="100" x2="1500" y2="100"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1" y1="150" x2="1500" y2="150"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="0" y1="200" x2="1499.999" y2="200"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="-0.001" y1="250" x2="1499.999" y2="250"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="0.999" y1="300" x2="1499.999" y2="300"/>
+    </g>
+    <g style="">
+      <title>Vertical_Lines</title>
+      <line style="stroke: rgb(0, 0, 0);" x1="0" y1="0" x2="1" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="50" y1="0" x2="50" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="100" y1="0" x2="100" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="150" y1="0" x2="150" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="200" y1="0" x2="200" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="250" y1="0" x2="250" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="299" y1="0" x2="299" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="349" y1="0" x2="349" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="399" y1="0" x2="399" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="449" y1="0" x2="449" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="502" y1="0" x2="502" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="551" y1="0" x2="551" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="601" y1="0" x2="601" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="651" y1="0" x2="651" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="701" y1="0" x2="701" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="751" y1="0" x2="751" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="800" y1="0" x2="800" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="850" y1="0" x2="850" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="900" y1="0" x2="900" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="950" y1="0" x2="950" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1000" y1="0" x2="1000" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1049" y1="0" x2="1049" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1099" y1="0" x2="1099" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1149" y1="0" x2="1149" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1199" y1="0" x2="1199" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1249" y1="0" x2="1249" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1298" y1="0" x2="1298" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1348" y1="0" x2="1348" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1398" y1="0" x2="1398" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1448" y1="0" x2="1448" y2="300"/>
+      <line style="stroke: rgb(0, 0, 0);" x1="1499.998" y1="0" x2="1499.998" y2="300"/>
+    </g>
+  </g>
+  <g visibility="hidden">
+    <rect width="3000" height="100" style="fill: rgb(255, 255, 255);"/>
+    <text transform="matrix(1, 0, 0, 1, 486.671875, 175.953125)" class="board-title text-display" style="fill: rgb(51, 51, 51); font-family: Diplomata; font-size: 80px; white-space: pre; text-anchor: middle;"><tspan x="1012.75" y="-92.794">BEAD ROAD</tspan><tspan x="1012.75" dy="1em">​</tspan></text>
+  </g>
+</svg>
+</div>

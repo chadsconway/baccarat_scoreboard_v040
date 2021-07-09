@@ -15,14 +15,21 @@ var app = express();
   helpers,
   partialsDir: ["views/partials/"],
 });
+
 */
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static("public"));
+app.use("/static", express.static(path.join(__dirname, "public")));
 app.use(logger("dev"));
 
 app.set("view engine", "hbs");
+
+/**
+ * Expose locals and request locals inside views
+ */
+hbs.localsAsTemplateData(app);
 /**
  * home route
  */
@@ -65,7 +72,7 @@ app.use(function (req, res, next) {
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
+  res.locals.error = req.app.get("env") === "development" ? err : err;
 
   // render the error page
   res.status(err.status || 500);

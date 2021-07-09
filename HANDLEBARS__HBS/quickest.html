@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="insertion"></div>
+    <script id="person-template" type="text/x-handlebars-template">
+      <div class="entry">
+
+        <h1>{{person.firstname}} {{person.lastname}}</h1>
+
+      </div>
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script>
+      var source = document.getElementById("person-template").innerHTML;
+      var template = Handlebars.compile(source);
+      var context = { person: { firstname: "kora", lastname: "Se Bobo" } };
+      var html = template(context);
+      console.log(html);
+      document.querySelector(".insertion").innerHTML = html;
+    </script>
+  </body>
+</html>

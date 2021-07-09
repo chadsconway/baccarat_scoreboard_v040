@@ -1,0 +1,16 @@
+
+      .content{
+        display:flex;
+        flex-flow:column;
+        align-items:center;
+      }
+      
+      input, button{
+        width:100%;
+        max-width:400px;
+        
+        padding:0.5em 1em;
+      
+        text-align:center;
+      }
+  

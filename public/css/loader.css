@@ -1,0 +1,9 @@
+.bead-road-wrapper {
+  width: 50vw;
+  overflow-x: scroll;
+}
+.boad-road-svg {
+  display: inline;
+  box-sizing: border-box;
+  margin-left: 500px;
+}
