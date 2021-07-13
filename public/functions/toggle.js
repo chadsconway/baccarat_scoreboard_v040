@@ -2,7 +2,9 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   let statefulFunction = (function () {
-    console.log("toggle.js");
+    if (debugToggle === true) {
+      console.log("toggle.js");
+    }
     document.getElementById("mouse").addEventListener("click", handleClick);
     functionState = "keys";
     listeners = [];
@@ -17,7 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
       emitState();
     }
     function handleClick(e) {
-      console.log(e.explicitOriginalTarget.id);
+      if (debugToggle === true) {
+        console.log(e.explicitOriginalTarget.id);
+      }
       switch (e.explicitOriginalTarget.id) {
         case "keys":
           hideButton("keys");
@@ -41,15 +45,21 @@ document.addEventListener("DOMContentLoaded", () => {
         return functionState;
       },
       registerListener: function (cb) {
-        console.log("adding listener");
+        if (debugToggle) {
+          console.log("adding listener");
+        }
         listeners.push(cb);
       },
     };
   })();
-  console.log("currentState = " + statefulFunction.getState());
+  if (debugToggle === true) {
+    console.log("currentState = " + statefulFunction.getState());
+  }
   function callback(functionState) {
     if (functionState === "keys") {
-      console.log("keyboard input active");
+      if (debugToggle) {
+        console.log("keyboard input active");
+      }
       document.addEventListener("keypress", function (e) {
         console.log(e);
       });

@@ -1,31 +1,39 @@
+/**
 function Cell(cellNumber) {
   this.cellNumber = cellNumber;
   this.column = Math.floor(cellNumber / 6) + 1;
-  this.row = cellNumber - ( (this.column - 1)*6);
-  this.hand = {};
+  this.row = cellNumber - (this.column - 1) * 6;
 }
-Cell.prototype.getCoords() = function(){
+Cell.prototype.getCoords = function () {
   let coords = {
     x: this.column,
-    y: this.row
-  }
+    y: this.row,
+  };
   return coords;
-}
-Cell.prototype.setResults = function(hand){
-  this.winner = hand.winner;
-  this.score = hand.score;
-  this.roundNum = hand.roundNum;
-  this.pairbank = hand.pairbank;
-  this.pairplyr = hand.pairplyr;
-  this.natural = hand.natural;
-}
-
+};
+Cell.prototype.addRound = function (round) {
+  let winner = round.winner;
+};
+*/
 function BeadRoad(road) {
   this.road = road | {};
-  this.cells = [];
+  this.cells = new CellLibrary();
+  this.cells.resetLibrary();
+  this.cells.listCells();
   this.activeColumn = 1;
   this.activeRow = 1;
 }
+BeadRoad.prototype.getBeadSVG = function (winner) {
+  let svgelement = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  let beadSVG;
+  if (winner === "banker") {
+    beadSVG = `
+  <svg class="bead">
+  <circle id="bead-road-banker" style="fill: none; stroke: url(#color-1); stroke-width: 5px;" cx="25" cy="125" r="22.5" class="banker-bead-big-road big-road-bead"/>
+  </svg>
+  `;
+  }
+};
 BeadRoad.prototype.getNextCell = function () {
   // let row = this.activeRow + 1;
   let nextCell;
@@ -63,9 +71,9 @@ BeadRoad.prototype.getCoordsByCellNum = function (round) {
   let r = round - (c - 1) * 6;
   let coords = {
     x: c,
-    y: r
+    y: r,
   };
-  console.log('coords = ' + coords);
+  console.log("coords = " + coords);
   return coords;
 };
 BeadRoad.prototype.render = function () {
@@ -80,5 +88,3 @@ BeadRoad.prototype.getNextCellOriginCoords = function () {
   let y = nextCell.r * 50 - 50;
   console.log("x = " + x + " y = " + y);
 };
-
-

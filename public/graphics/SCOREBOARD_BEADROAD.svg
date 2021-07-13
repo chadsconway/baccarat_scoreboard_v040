@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="0 0 3000 400" width="3000px" height="350px" class="bead-road-bead-symbols" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+<svg viewBox="0 0 3000 400" width="3000px" height="350px" class="bead-road-bead-symbols ndc-debug-element" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
   <defs>
     <bx:grid x="0" y="0" width="50" height="50"/>
     <linearGradient id="color-0" bx:pinned="true">

@@ -8,6 +8,7 @@ var devRouter = require("./routes/router.dev.js");
 var statsRoutes = require("./routes/routes.stats.js");
 var Stats = require("./app.stats");
 var stats = new Stats();
+// var dataRoutes = require("./routes/data")
 hbs.registerPartials(__dirname + "/views/partials", function (err) {});
 // var test1 = require("./middleware/test.1");
 

@@ -32,11 +32,17 @@ const BEADSPRITE = [
 ];
 
 function getSprite(desc) {
-  console.log(BEADSPRITE.indexOf(desc));
   let ind = BEADSPRITE.indexOf(desc);
   let viewBox = BSD[ind].slice(1, 5);
+  if (debugSprite === true) {
+    console.log("BEAD_SPRITE.js-->getSprite(desc)");
+    console.log("indexOf beadsprite bead = " + BEADSPRITE.indexOf(desc));
+    // console.log("buildRef = " + buildRef);
+    console.log("viewBox = " + viewBox);
+  }
   return `BEAD_SPRITE.svg#svgView(viewBox(${viewBox}))`;
-  console.log("buildRef = " + buildRef);
 }
-getSprite("pair_b");
-console.log("getSprite(beadbanker) = " + getSprite("beadbanker"));
+if (debugSprite) {
+  console.log("getSprite(beadbanker) = " + getSprite("beadbanker"));
+}
+getSprite("beadbanker");

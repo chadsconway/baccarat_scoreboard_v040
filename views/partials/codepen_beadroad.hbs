@@ -1,0 +1,106 @@
+<style>
+body {
+	font-family: "Source Sans Pro", sans-serif;
+	display: flex;
+	height: 100vh;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.bead-road-svg {
+	width: 90vw;
+	height: auto;
+}
+
+.bead-road-title {
+	font-family: sans-serif;
+	font-size: 40px;
+}
+text {
+	text-anchor: middle;
+	dominant-baseline: middle;
+	pointer-events: none;
+}
+
+</style>
+
+<div class="bead-road-wrapper">
+  <div class="bead-road-title">Bead Road</div>
+  <svg class="bead-road-svg" xmlns="http://www.w3.org/2000/svg">
+    <rect
+      class="bead-road-back-rect"
+      width="100%"
+      height="100%"
+      fill="#000"
+    ></rect>
+  </svg>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  const BEADRDsvg = document.querySelector(".bead-road-svg");
+const BEADRDsvgns = "http://www.w3.org/2000/svg";
+
+const BEADRDwidth = 50;
+const BEADRDheight = 50;
+const BEADRDcolumns = 60;
+const BEADRDrows = 6;
+const BEADRDfakePadding = 10; // this will be the overall padding and the space between rectangles
+const BEADRDcolorArray = ["#FFFFFF"];
+let BEADRDcounter = 0;
+let BEADRDcol = 1;
+let BEADRDrow = 1;
+let BEADRDcell = {
+	number: BEADRDcounter,
+	column: BEADRDcol,
+	row: BEADRDrow
+};
+let BEADRDcells = [];
+
+let BEADRDcellnumber = `${BEADRDcounter}`;
+let BEADRDcellrow = `${BEADRDrow}`;
+let BEADRDcellcolumn = `${BEADRDcol}`;
+const BEADRDsvgWidth =
+	BEADRDwidth * BEADRDcolumns + (BEADRDcolumns + 1) * BEADRDfakePadding;
+const BEADRDsvgHeight =
+	BEADRDheight * BEADRDrows + (BEADRDrows + 1) * BEADRDfakePadding;
+
+gsap.set(BEADRDsvg, {
+	attr: {
+		"data-cell-number": BEADRDcellnumber,
+		"data-cell-column": BEADRDcellcolumn,
+		"data-cell-row": BEADRDcellrow,
+		width: BEADRDsvgWidth,
+		height: BEADRDsvgHeight,
+		viewBox: "0 0 " + BEADRDsvgWidth + " " + BEADRDsvgHeight
+	}
+});
+for (let k = 0; k < BEADRDcolumns; k++) {
+	for (let m = 0; m < BEADRDrows; m++) {
+		BEADRDcounter++;
+		let BEADRDcellnumber = `${BEADRDcounter}`;
+		let BEADRDcellrow = `${m + 1}`;
+		let BEADRDcellcolumn = `${k + 1}`;
+		let BEADRDnewRect = document.createElementNS(BEADRDsvgns, "rect");
+		let BEADRDnewX = (BEADRDwidth + BEADRDfakePadding) * k + BEADRDfakePadding;
+		let BEADRDnewY = (BEADRDheight + BEADRDfakePadding) * m + BEADRDfakePadding;
+		gsap.set(BEADRDnewRect, {
+			attr: {
+				"data-cell-number": BEADRDcellnumber,
+				"data-cell-column": BEADRDcellcolumn,
+				"data-cell-row": BEADRDcellrow
+			},
+			x: BEADRDnewX,
+			y: BEADRDnewY,
+			width: BEADRDwidth,
+			height: BEADRDheight,
+			fill: BEADRDcolorArray[BEADRDcounter % BEADRDcolorArray.length]
+		});
+		BEADRDsvg.appendChild(BEADRDnewRect);
+	}
+}
+});
+
+</script>

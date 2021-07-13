@@ -1,12 +1,10 @@
 window.onload = function () {
-  let devbutton = document.querySelector("#elemtodisplay");
-
-  function displayProps() {
-    let elem = document.getElementById("elemtodisplay");
-    console.log(elem);
-    let rect = document.createElement("rect");
-    for (let prop in rect) {
-      let val = rect[prop];
+  let elems = document.querySelectorAll(".ndc-debug-element");
+  console.log(elems);
+  for (let i = 0; i < elems.length; i++) {
+    let elem = elems[i];
+    for (let prop in elem) {
+      let val = elem[prop];
       console.log(`${prop} = ${val}`);
     }
   }
