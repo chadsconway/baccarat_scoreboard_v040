@@ -1,10 +1,10 @@
 {
   "name": "bacarrat_sb",
-  "main": "/bin/server.js",
+  "main": "/__BACKEND/server.js",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "nodemon ./bin/server.js",
+    "dev": "nodemon ./__BACKEND/server.js",
     "test": "jest"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "express": "~4.16.1",
     "express-handlebars": "^5.3.2",
     "hbs": "^4.0.6",
+    "hbs-utils": "0.0.4",
     "http-errors": "~1.6.3",
     "jest": "^27.0.6",
     "morgan": "~1.9.1",

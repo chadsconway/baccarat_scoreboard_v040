@@ -1,0 +1,75 @@
+<style>
+  .cockroach-road-svg,
+.bigeye-road-svg,
+.small-road-svg {
+  font-weight: 400;
+  display: inline-flex;
+  flex-direction: column;
+  align-content: center;
+  overflow: hidden;
+}
+.cockroach-road-title,
+.bigeye-road-title,
+.small-road-title {
+  margin-left: 100px;
+  font-size: 40px;
+  margin-bottom: 0;
+}
+.bead-road-svg,
+.big-road-svg {
+  font-weight: 400;
+  margin-left: 100px;
+  box-sizing: border-box;
+  margin-right: 100px;
+  max-width: 90vw;
+}
+.bead-road-wrapper,
+.big-road-wrapper {
+  width: 90vw;
+  margin-left: 100px;
+  display: inline-flex;
+  flex-direction: column;
+  align-content: center;
+  overflow: hidden;
+}
+.bead-road-title,
+.big-road-title {
+  margin-left: 100px;
+  font-size: 40px;
+  margin-bottom: 0;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 200px 250px 250px 200px 200px;
+  grid-template-areas: "header header" "beadroad beadroad" "bigroad bigroad" "bigeyeroad statistics" "smallroad cockroachroad";
+  gap: 25px;
+}
+.bead-road-wrapper {
+  grid-area: beadroad;
+}
+.header-wrapper {
+  grid-area: header;
+}
+.big-road-wrapper {
+  grid-area: bigroad;
+}
+.bigeye-road-wrapper {
+  grid-area: bigeyeroad;
+}
+.statistics-wrapper {
+  grid-area: statistics;
+}
+.small-road-wrapper {
+  grid-area: smallroad;
+}
+.cockroach-road-wrapper {
+  grid-area: cockroachroad;
+}
+.hide-button {
+  display: none;
+}
+.navbar-brand {
+  font-size: 3em;
+}
+</style>

@@ -1,0 +1,110 @@
+
+<template id="template-score-road-generator">
+    <section id="road-section">
+  <div class="score-road-wrapper">
+    <div class="score-road-title">
+      Score Road
+    </div>
+    <svg class="score-road-svg" xmlns="http://www.w3.org/2000/svg">
+      <rect
+        class="score-road-back-rect"
+        width="100%"
+        height="100%"
+        fill="#000"
+      ></rect>
+    </svg>
+  </div>
+  </section>
+</template>
+<script>
+    const score_road_svg = document.querySelector(".bead-road-svg");
+const score_road_svgns = "http://www.w3.org/2000/svg";
+
+const score_road_width = 50;
+const score_road_height = 50;
+const score_road_columns = 60;
+const score_road_rows = 6;
+const score_road_fakePadding = 10; // this will be the overall padding and the space between rectangles
+const score_road_colorArray = ["#FFFFFF"];
+let score_road_counter = 0;
+let score_road_col = 1;
+let score_road_row = 1;
+let score_road_cell = {
+	number: score_road_counter,
+	column: score_road_col,
+	row: score_road_row
+};
+let score_road_cells = [];
+
+let score_road_cellnumber = `${score_road_counter}`;
+let score_road_cellrow = `${score_road_row}`;
+let score_road_cellcolumn = `${score_road_col}`;
+const score_road_svgWidth =
+	score_road_width * score_road_columns + (score_road_columns + 1) * score_road_fakePadding;
+const score_road_svgHeight =
+	score_road_height * score_road_rows + (score_road_rows + 1) * score_road_fakePadding;
+
+gsap.set(score_road_svg, {
+	attr: {
+		"data-cell-number": score_road_cellnumber,
+		"data-cell-column": score_road_cellcolumn,
+		"data-cell-row": score_road_cellrow,
+		width: score_road_svgWidth,
+		height: score_road_svgHeight,
+		viewBox: "0 0 " + score_road_svgWidth + " " + score_road_svgHeight
+	}
+});
+for (let k = 0; k < score_road_columns; k++) {
+	for (let m = 0; m < score_road_rows; m++) {
+		score_road_counter++;
+		let score_road_cellnumber = `${score_road_counter}`;
+		let score_road_cellrow = `${m + 1}`;
+		let score_road_cellcolumn = `${k + 1}`;
+		let score_road_newRect = document.createElementNS(score_road_svgns, "rect");
+		let score_road_newX = (score_road_width + score_road_fakePadding) * k + score_road_fakePadding;
+		let score_road_newY = (score_road_height + score_road_fakePadding) * m + score_road_fakePadding;
+		gsap.set(score_road_newRect, {
+			attr: {
+				"data-cell-number": score_road_cellnumber,
+				"data-cell-column": score_road_cellcolumn,
+				"data-cell-row": score_road_cellrow
+			},
+			x: score_road_newX,
+			y: score_road_newY,
+			width: score_road_width,
+			height: score_road_height,
+			fill: score_road_colorArray[score_road_counter % score_road_colorArray.length]
+		});
+		score_road_svg.appendChild(score_road_newRect);
+	}
+}
+
+</script>
+<style>
+  body {
+	font-family: "Source Sans Pro", sans-serif;
+	display: flex;
+	height: 100vh;
+	overflow: hidden;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.score-road-svg {
+	width: 90vw;
+	height: auto;
+}
+
+text {
+	font-size: 24px;
+	fill: white;
+	text-anchor: middle;
+	dominant-baseline: middle;
+	pointer-events: none;
+}
+.score-road-title {
+	font-family: sans-serif;
+	font-size: 40px;
+}
+</style>

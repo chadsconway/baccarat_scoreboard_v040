@@ -1,0 +1,78 @@
+/*
+    *FONT: Open Sans
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+.axr-font-open-sans {
+  font-family: "Open Sans", sans-serif;
+}
+/*
+    *FONT: Encode Sans MC
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.axr-font-encode-sans {
+  font-family: "Encode Sans SC", sans-serif;
+}
+
+/*
+    *FONT: Montserrat
+*/
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.axr-font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+/*
+    *FONT: Comfortaa
+*/
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
+.axr-font-comfortaa {
+  font-family: "Comfortaa", cursive;
+}
+/*
+    *FONT: Fira Mono
+*/
+@import url("https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap");
+.axr-font-fira-mono {
+  font-family: "Fira Mono", monospace;
+}
+@import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Bowlby+One+SC&family=Lato&family=Megrim&family=Oi&family=Oswald&family=Overlock+SC&family=Press+Start+2P&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Roboto&family=Unica+One&family=Zen+Dots&display=swap");
+.axr-font-annie {
+  font-family: "Annie Use Your Telescope", cursive;
+}
+.axr-font-bowlby {
+  font-family: "Bowlby One SC", cursive;
+}
+.axr-font-lato {
+  font-family: "Lato", sans-serif;
+}
+.axr-font-megrim {
+  font-family: "Megrim", cursive;
+}
+.axr-font-oi {
+  font-family: "Oi", cursive;
+}
+.axr-font-oswald {
+  font-family: "Oswald", sans-serif;
+}
+.axr-font-overlock {
+  font-family: "Overlock SC", cursive;
+}
+.axr-font-2p {
+  font-family: "Press Start 2P", cursive;
+}
+.axr-font-raleway {
+  font-family: "Raleway", sans-serif;
+}
+.axr-font-righteous {
+  font-family: "Righteous", cursive;
+}
+.axr-font-roboto {
+  font-family: "Roboto", sans-serif;
+}
+.axr-font-unica-one {
+  font-family: "Unica One", cursive;
+}
+.axr-font-zen-dots {
+  font-family: "Zen Dots", cursive;
+}

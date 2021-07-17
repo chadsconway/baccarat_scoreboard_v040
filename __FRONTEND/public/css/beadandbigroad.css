@@ -1,0 +1,40 @@
+/*
+     FITS HORIZONTALLY BUT WILL HAVE TO SCROLL FOR OTHER BOARDS
+     */
+
+.big-road-bead {
+  pointer-events: none;
+}
+.big-road-tie {
+  pointer-events: none;
+}
+/*
+.bead-road-svg,
+.big-road-svg {
+  font-weight: 400;
+  margin-left: 100px;
+  box-sizing: border-box;
+  margin-right: 100px;
+  max-width: 90vw;
+}
+.bead-road-title,
+.big-road-title {
+  margin-left: 100;
+  font-size: 40px;
+  margin-bottom: -60px;
+}
+.bead-road-wrapper,
+.big-road-wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+*/
+
+/*
+.big-road-svg {
+  width: 90vw;
+  height: auto;
+  overflow-x: scroll;
+}
+*/
