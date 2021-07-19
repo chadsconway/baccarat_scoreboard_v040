@@ -1,0 +1,49 @@
+
+
+<html lang="en">
+  <head>
+
+    {{!-- {{> performance}} --}}
+    {{> meta}}
+    {{!-- {{> links}} --}}
+    {{> scripts}}
+    {{> style.bootstrap}}
+    {{> style.grid}}
+    {{> style.roads}}
+  </head>
+  <body>
+    <section class="container">
+      <div class="row">
+        <div class="col-12"> {{> header}}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          {{> road.bead}}
+        </div>
+        <div class="col-md-6">
+         {{> statistics}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          {{> road.big}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          {{> road.bigeyeboy}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          {{> road.small}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          {{> road.cockroach}}
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

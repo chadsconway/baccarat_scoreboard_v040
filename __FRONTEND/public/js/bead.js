@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "data-cell-number": BEADRDcellnumber,
       "data-cell-column": BEADRDcellcolumn,
       "data-cell-row": BEADRDcellrow,
-      width: 1500,
-      height: 200,
+      width: 900,
+      height: 300,
       viewBox: "0 0 " + BEADRDsvgWidth + " " + BEADRDsvgHeight,
     },
   });

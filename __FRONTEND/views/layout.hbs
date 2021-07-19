@@ -1,26 +1,27 @@
-<script>
-  console.log("view index.hbs");
-</script>
+
 
 <html lang="en">
   <head>
-<link rel="stylesheet" href="https://localhost:3000/static/css/grid.css" />
-
+<script>
+  console.log("using layout2.hbs");
+</script>
     {{!-- {{> performance}} --}}
     {{> meta}}
     {{!-- {{> links}} --}}
     {{> scripts}}
-  
+    {{> style.bootstrap}}
+    {{> style.grid}}
+    {{> style.roads}}
   </head>
   <body>
-    <div class="container">
-  {{> header}}
-  {{> road.bead}}
-  {{> road.big}}
-  {{> road.bigeyeboy}}
-  {{> statistics}}
-  {{> road.small}}
-  {{> road.cockroach}}
-  </div>
+    <section class="grid-container">
+    {{> header}}
+    {{> road.bead}}
+    {{> statistics}}
+    {{> road.big}}
+    {{> road.bigeyeboy}}
+    {{> road.small}}
+    {{> road.cockroach}}
+    </section>
   </body>
 </html>

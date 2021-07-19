@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "data-cell-number": SMALLRDcellnumber,
       "data-cell-column": SMALLRDcellcolumn,
       "data-cell-row": SMALLRDcellrow,
-      width: 1500,
-      height: 200,
+      width: 1800,
+      height: 300,
       viewBox: "0 0 " + SMALLRDsvgWidth + " " + SMALLRDsvgHeight,
     },
   });

@@ -9,10 +9,12 @@ var debug = require("debug")("express:server");
 var http = require("http");
 const https = require("https");
 const fs = require("fs");
+/** 
 const options = {
   key: fs.readFileSync(__dirname + "/keys/baccarat_key.pem"),
   cert: fs.readFileSync(__dirname + "/keys/chain.pem"),
 };
+*/
 /**
  * Get port from environment and store in Express.
  */
@@ -80,7 +82,7 @@ function onListening() {
  * Create HTTP server.
  */
 
-var server = https.createServer(options, app);
+var server = http.createServer(/**options,*/ app);
 
 /**
  * Listen on provided port, on all network interfaces.

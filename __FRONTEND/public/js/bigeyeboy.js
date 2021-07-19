@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "data-cell-number": BIGEYERDcellnumber,
       "data-cell-column": BIGEYERDcellcolumn,
       "data-cell-row": BIGEYERDcellrow,
-      width: 1500,
-      height: 200,
+      width: 1800,
+      height: 300,
       viewBox: "0 0 " + BIGEYERDsvgWidth + " " + BIGEYERDsvgHeight,
     },
   });

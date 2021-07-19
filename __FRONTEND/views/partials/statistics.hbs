@@ -8,9 +8,44 @@
       {{STATS.BANKER}}
     </div>
   </div>
-  <div class="player"></div>
-  <div class="tie"></div>
-  <div class="pair-banker"></div>
-  <div class="pair-player"></div>
-  <div class="natural"></div>
+  <div class="player">
+      <div class="icon-player"></div>
+      <div class="stats-title">
+        PLAYER
+      </div>
+      <div class="stats-score">
+        {{STATS.PLAYER}}
+      </div>
+    </div>
+  </div>
+  <div class="tie">
+    <div class="icon-tie"></div>
+    <div class="stats-title">
+      TIE
+    </div>
+    <div class="tie">
+      {{STATS.TIE}}
+    </div>
+  </div>
+  <div class="rounds">
+    <div class="icon-rounds"></div>
+    <div class="stats-title">
+      TOTAL GAMES
+    </div>
+    <div class="stats-score">
+      {{STATS.ROUNDS}}
+    </div>
+  </div>
 </div>
+<style>
+  .banker,.player,.tie,.rounds{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 40px;
+    border: 2px solid black;
+    height: 50px;
+    width: 100%;
+    
+  }
+</style>

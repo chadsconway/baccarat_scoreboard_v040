@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "data-cell-number": COCKROACHRDcellnumber,
       "data-cell-column": COCKROACHRDcellcolumn,
       "data-cell-row": COCKROACHRDcellrow,
-      width: 1500,
-      height: 200,
+      width: 1800,
+      height: 300,
       viewBox: "0 0 " + COCKROACHRDsvgWidth + " " + COCKROACHRDsvgHeight,
     },
   });
