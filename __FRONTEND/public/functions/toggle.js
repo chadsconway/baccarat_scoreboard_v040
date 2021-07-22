@@ -1,7 +1,7 @@
 // const { listeners } = require("../../app");
-
+var scoringState;
 document.addEventListener("DOMContentLoaded", () => {
-  let statefulFunction = (function () {
+  scoringState = (function () {
     if (debugToggle === true) {
       console.log("toggle.js");
     }
@@ -55,15 +55,4 @@ document.addEventListener("DOMContentLoaded", () => {
   if (debugToggle === true) {
     console.log("currentState = " + statefulFunction.getState());
   }
-  function callback(functionState) {
-    if (functionState === "keys") {
-      if (debugToggle) {
-        console.log("keyboard input active");
-      }
-      document.addEventListener("keypress", function (e) {
-        console.log(e);
-      });
-    }
-  }
-  statefulFunction.registerListener(callback);
 });

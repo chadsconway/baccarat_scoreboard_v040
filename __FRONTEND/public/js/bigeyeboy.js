@@ -1,5 +1,10 @@
 var placeBead = false;
 document.addEventListener("DOMContentLoaded", function () {
+  const winW = window.innerWidth;
+  const winH = window.innerHeight;
+  const winW90 = winW * 0.9;
+  const winW05 = winW * 0.05;
+
   const BIGEYERDsvg = document.querySelector(".bigeye-road-svg");
   const BIGEYERDsvgns = "http://www.w3.org/2000/svg";
 
@@ -7,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const BIGEYERDheight = 50;
   const BIGEYERDcolumns = 60;
   const BIGEYERDrows = 6;
-  const BIGEYERDfakePadding = 10;
+  const BIGEYERDfakePadding = 5;
   const BIGEYERDcolorArray = ["#FFFFFF"];
   let BIGEYERDcounter = 0;
   let BIGEYERDcol = 1;
@@ -33,8 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "data-cell-number": BIGEYERDcellnumber,
       "data-cell-column": BIGEYERDcellcolumn,
       "data-cell-row": BIGEYERDcellrow,
-      width: 1800,
-      height: 300,
+
       viewBox: "0 0 " + BIGEYERDsvgWidth + " " + BIGEYERDsvgHeight,
     },
   });

@@ -40,6 +40,7 @@ var observer = new PerformanceObserver(observer_cb);
 observer.observe({ entryTypes: ["measure"] });
 
 document.addEventListener("DOMContentLoaded", function(){
+  
     let results = observer.takeRecords();
     observer.disconnect();
     print_Records(results);

@@ -1,103 +1,38 @@
-
 <div class="header-wrapper">
-  
-  <div class="row mt-4">
-    <div class="col-sm-12 col-md-8">
-    <header
-      class="
-        d-flex
-        flex-wrap
-        justify-content-center
-        py-3
-        mb-4
-        border-bottom
-      "
-    >
-      <a href="" class="navbar-brand">Baccarat Road Analysis</a>
-      <div class="col-sm-12 col-md-4 text-end">
-        <div class="btn-group" role="group">
-          <button
-            type="button"
-            class="
-              ndc-font-text ndc-entry-file
-              p-3
-              btn btn-outline-secondary
-              col-lg-1
-              float-end
-            "
-          >
-            File
-          </button>
-          <button
-            type="button"
-            class="
-              ndc-entry-save ndc-font-text
-              p-3
-              btn
-              col-lg-1
-              btn-outline-secondary
-              float-end
-            "
-          >
-            Save
-          </button>
-            <button
-            type="button"
-            class="
-              ndc-entry-reset ndc-font-text
-              p-3
-              btn
-              col-lg-1
-              btn-outline-secondary
-              float-end
-            "
-          >
-            Reset
-          </button>
-        </div>
-      </div>
-    </header>
-    </div>
+  <div class="row">
+      <a href="" class="navbar-brand">
+        Baccarat Road Analysis
+      </a>
+
+    {{> file_button_group}}
   </div>
-  <div class="row mt-4">
-    <div class="btn-group col-lg-6">
-      <button
-        role="button"
-        class="ndc-entry-banker btn btn-lg btn-danger ndc-font-text"
-      >
+  <div class="row">
+    <div class="button-group scoring-buttons">
+      <button role="button" class="scoring-buttons banker-button">
         Banker
       </button>
-      <button
-        role="button"
-        class="ndc-entry-player btn btn-lg btn-primary ndc-font-text"
-      >
+      <button role="button" class="scoring-buttons player-button">
         Player
       </button>
-      <button
-        role="button"
-        class="ndc-entry-tie btn btn-lg btn-success ndc-font-text"
-      >
+      <button role="button" class="scoring-buttons tie-button">
         Tie
       </button>
     </div>
-    <div class="btn-group col-offset-4 col-lg-2">
-      <button
-        id="mouse"
-        class="
-          ndc-entry-mouse
-          btn btn-outline-secondary             
-          ndc-font-text
-        "
-      >
+    <div class="button-group edit-buttons">
+      <button type="button" class="edit-buttons undo-button float-end">
+        Undo
+      </button>
+      <button type="button" class="edit-buttons redo-button float-end">
+        Redo
+      </button>
+    </div>
+    <div class="button-group toggle-buttons">
+      <button id="mouse" class="toggle-buttons mouse-button">
         Mouse
       </button>
-      <button
-        id="keys"
-        class="ndc-entry-keyboard btn btn-outline-secondary ndc-font-text  hide-button"
-      >
+      <button id="keys" class="toggle-buttons keys-button hide-button">
         Buttons
       </button>
+    </div>
   </div>
 </div>
-
-

@@ -2,8 +2,10 @@ function Game() {
   this.currentRound = 1;
   this.gameID = Date.now();
   this.title = this.gameID;
-  this.beadRoad = new BeadRoad();
+  this.beadRoad = new BeadRoad(this.gameID);
   this.rounds = new Array();
+  this.rounds.push({ game: this.gameID });
+  this.beadRoad.renderBeadRoad(this.rounds);
   // this.bigRoad = new BigRoad();
   // this.bigEyeBoyRoad = new BigEyeBoyRoad();
   // this.smallRoad = new SmallRoad();
@@ -72,12 +74,12 @@ Game.prototype.recordRound = function (winner) {
     console.table(this.rounds);
   }
   this.incCurrentRound();
-  this.render();
+  this.renderBeadRoad();
   this.serialize();
 };
 
-Game.prototype.render = function () {
-  // todo
+Game.prototype.renderBeadRoad = function () {
+  this.beadRoad.render(this.rounds);
 };
 
 Game.prototype.log = function () {
@@ -96,21 +98,28 @@ Game.prototype.serialize = function () {
   myobj_serialized = JSON.stringify(myobj);
   window.localStorage.setItem("baccarat_game", myobj_serialized);
 };
-Game.prototype.deserialize = function (storedString) {
-  let gameobj = JSON.parse(storedString);
-  let arr = JSON.parse(gameobj.rounds);
-  this.setRounds(arr);
+Game.prototype.deserialize = async function (storedString) {
+  let gameobj = await JSON.parse(storedString);
   if (debugGame) {
     console.log(storedString);
     console.log(gameobj);
   }
-  this.setGameID(gameobj.id);
-  this.setCurrentRound(gameobj.currentRound);
-  this.setBeadRoad(gameobj.beadRoad);
+  await this.setGameID(gameobj.id);
+  this.rounds = new Array();
+  await this.rounds.push({ game: this.gameID });
+
+  let arr = await JSON.parse(gameobj.rounds);
+  await this.setRounds(arr);
+  await this.setCurrentRound(gameobj.currentRound);
+  await this.renderBeadRoad();
   if (debugGame) {
     console.log("deserialize:getgameId: " + this.getGameID());
     console.log("deserialize:getCurrentRound: " + this.getCurrentRound());
     console.log("deserialize:rounds.length: " + this.rounds.length);
+    console.log("this.rounds array = ");
+    for (let i = 0; i < this.rounds.length; i++) {
+      console.log(this.rounds[i]);
+    }
     console.table(this.getBeadRoad());
   }
 };

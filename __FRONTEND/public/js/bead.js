@@ -3,11 +3,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const BEADRDsvg = document.querySelector(".bead-road-svg");
   const BEADRDsvgns = "http://www.w3.org/2000/svg";
 
+  let winW = window.innerWidth;
+  const BEADRDfakePadding = 5;
+  let winW50 = winW * 0.5;
+
   const BEADRDwidth = 50;
   const BEADRDheight = 50;
-  const BEADRDcolumns = 60;
+  const BEADRDcolumns = 30;
+  const BEADRDvisibleColumns = 30;
+  const BEADRDactualWidth =
+    BEADRDvisibleColumns * (BEADRDwidth + BEADRDfakePadding) +
+    BEADRDfakePadding;
   const BEADRDrows = 6;
-  const BEADRDfakePadding = 10;
   const BEADRDcolorArray = ["#FFFFFF"];
   let BEADRDcounter = 0;
   let BEADRDcol = 1;
@@ -32,8 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
       "data-cell-number": BEADRDcellnumber,
       "data-cell-column": BEADRDcellcolumn,
       "data-cell-row": BEADRDcellrow,
-      width: 900,
-      height: 300,
       viewBox: "0 0 " + BEADRDsvgWidth + " " + BEADRDsvgHeight,
     },
   });

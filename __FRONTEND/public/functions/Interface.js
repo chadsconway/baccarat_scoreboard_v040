@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     game = new Game();
     game.deserialize(localStorage.getItem("baccarat_game"));
+    game.renderBeadRoad();
   } else {
     if (debugInterface) {
       console.log("no game found in local storage, initializing New Game");
@@ -25,6 +26,26 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollPosY: e.clientY - e.pageY,
     };
   }
+
+  /**
+   *@function callback For listener internal to
+   *             to toggle.js scoringState var
+   *@param {*} functionState
+   */
+  function callback(functionState) {
+    if (functionState === "keys") {
+      if (debugToggle) {
+        console.log("keyboard input active");
+      }
+      document.addEventListener("keypress", function (e) {
+        console.log(e);
+      });
+    }
+  }
+  /**
+   * Registering listener on state of mouse/buttons toggle
+   */
+  scoringState.registerListener(callback);
 
   /**
    *Mouse Events have Props:
@@ -49,33 +70,27 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(e);
   });
   // let mousedown =
-  let button_banker = document
-    .querySelector(".ndc-entry-banker")
+  let banker_button = document
+    .querySelector(".banker-button")
     .addEventListener("click", handleClickBanker);
-  let button_player = document
-    .querySelector(".ndc-entry-player")
+  let player_button = document
+    .querySelector(".player-button")
     .addEventListener("click", handleClickPlayer);
-  let button_tie = document
-    .querySelector(".ndc-entry-tie")
+  let tie_button = document
+    .querySelector(".tie-button")
     .addEventListener("click", handleClickTie);
-  let button_mouse = document
-    .querySelector(".ndc-entry-mouse")
-    .addEventListener("click", handleClickMouse);
-  let button_keyboard = document
-    .querySelector(".ndc-entry-keyboard")
-    .addEventListener("click", handleClickKeyboard);
-  let button_file = document
-    .querySelector(".ndc-entry-file")
+  let undo_button = document
+    .querySelector(".undo-button")
+    .addEventListener("click", handleClickUndo);
+  let file_button = document
+    .querySelector(".file-button")
     .addEventListener("click", handleClickFile);
-  let button_save = document
-    .querySelector(".ndc-entry-save")
+  let save_button = document
+    .querySelector(".save-button")
     .addEventListener("click", handleClickSave);
-  let button_reset = document
-    .querySelector(".ndc-entry-reset")
+  let reset_button = document
+    .querySelector(".reset-button")
     .addEventListener("click", handleClickReset);
-  async function handleClick(e) {
-    console.log(e.originalTarget);
-  }
 
   /**
    * control panel stubouts
@@ -108,6 +123,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     game.recordRound("tie");
     game.log();
+  }
+  function handleClickUndo(e) {
+    // todo
+  }
+  function handleClickRedo(e) {
+    // todo
   }
 
   async function handleClickKeyboard(e) {

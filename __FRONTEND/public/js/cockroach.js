@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const COCKROACHRDheight = 50;
   const COCKROACHRDcolumns = 60;
   const COCKROACHRDrows = 6;
-  const COCKROACHRDfakePadding = 10;
+  const COCKROACHRDfakePadding = 5;
   const COCKROACHRDcolorArray = ["#FFFFFF"];
   let COCKROACHRDcounter = 0;
   let COCKROACHRDcol = 1;
@@ -34,8 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "data-cell-number": COCKROACHRDcellnumber,
       "data-cell-column": COCKROACHRDcellcolumn,
       "data-cell-row": COCKROACHRDcellrow,
-      width: 1800,
-      height: 300,
+
       viewBox: "0 0 " + COCKROACHRDsvgWidth + " " + COCKROACHRDsvgHeight,
     },
   });

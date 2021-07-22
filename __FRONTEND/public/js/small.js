@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const SMALLRDheight = 50;
   const SMALLRDcolumns = 60;
   const SMALLRDrows = 6;
-  const SMALLRDfakePadding = 10;
+  const SMALLRDfakePadding = 5;
   const SMALLRDcolorArray = ["#FFFFFF"];
   let SMALLRDcounter = 0;
   let SMALLRDcol = 1;
@@ -32,8 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "data-cell-number": SMALLRDcellnumber,
       "data-cell-column": SMALLRDcellcolumn,
       "data-cell-row": SMALLRDcellrow,
-      width: 1800,
-      height: 300,
+
       viewBox: "0 0 " + SMALLRDsvgWidth + " " + SMALLRDsvgHeight,
     },
   });

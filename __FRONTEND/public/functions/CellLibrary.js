@@ -2,7 +2,6 @@
 Start CellLibrary
 *******************************/
 function CellLibrary() {
-  this.cell = new Cell();
   this.cells = [];
 }
 CellLibrary.prototype.resetLibrary = function () {
@@ -25,7 +24,6 @@ CellLibrary.prototype.resetLibrary = function () {
 };
 CellLibrary.prototype.setCell = function (number, column, row, winner, ties) {
   let cell = new Cell();
-  winner = winner || "";
 };
 
 CellLibrary.prototype.setBeadColRow = function (column, row, bead) {

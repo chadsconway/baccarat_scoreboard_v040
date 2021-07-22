@@ -1,40 +1,30 @@
 <div class="statistics-wrapper">
-  <div class="banker">
-    <div class="icon"></div>
-    <div class="stats-title">
-      BANKER
-    </div>
-    <div class="stats-score">
-      {{STATS.BANKER}}
-    </div>
+  <div class="board-title">
+    Statistics
   </div>
-  <div class="player">
-      <div class="icon-player"></div>
-      <div class="stats-title">
-        PLAYER
-      </div>
-      <div class="stats-score">
-        {{STATS.PLAYER}}
-      </div>
-    </div>
+  <div class="banker stats-title">
+    BANKER
   </div>
-  <div class="tie">
-    <div class="icon-tie"></div>
-    <div class="stats-title">
-      TIE
-    </div>
-    <div class="tie">
-      {{STATS.TIE}}
-    </div>
+  <div class="banker stats-score">
+    {{STATS.BANKER}}
   </div>
-  <div class="rounds">
-    <div class="icon-rounds"></div>
-    <div class="stats-title">
-      TOTAL GAMES
-    </div>
-    <div class="stats-score">
-      {{STATS.ROUNDS}}
-    </div>
+  <div class="player stats-title">
+    PLAYER
+  </div>
+  <div class="player stats-score">
+    {{STATS.PLAYER}}
+  </div>
+  <div class="tie stats-title">
+    TIE
+  </div>
+  <div class="tie stats-score">
+    {{STATS.TIE}}
+  </div>
+  <div class="rounds stats-title">
+    TOTAL GAMES
+  </div>
+  <div class="rounds stats-score">
+    {{STATS.ROUNDS}}
   </div>
 </div>
 <style>
@@ -42,10 +32,11 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    font-size: 40px;
+    font-size: 30px;
     border: 2px solid black;
     height: 50px;
     width: 100%;
+    font-family: Comfortaa, cursive;
     
   }
 </style>

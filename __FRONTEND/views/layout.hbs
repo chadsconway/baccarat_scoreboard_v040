@@ -1,17 +1,21 @@
-
-
 <html lang="en">
   <head>
 <script>
-  console.log("using layout2.hbs");
+  
+  console.log("using layout.hbs");
+  console.log("head partials: meta, scripts, style.bootstrap, style.grid, style.roads");
+  console.log("body partials: header, road.bead, statistics, road.big, road.bigeyeboy, road.small")
 </script>
-    {{!-- {{> performance}} --}}
+
+   {{> performance}} 
     {{> meta}}
     {{!-- {{> links}} --}}
     {{> scripts}}
     {{> style.bootstrap}}
     {{> style.grid}}
+    {{> style.buttons}}
     {{> style.roads}}
+    
   </head>
   <body>
     <section class="grid-container">
@@ -19,9 +23,15 @@
     {{> road.bead}}
     {{> statistics}}
     {{> road.big}}
+ 
     {{> road.bigeyeboy}}
     {{> road.small}}
     {{> road.cockroach}}
     </section>
+    <section class="modals">
+    {{> generate_button_group}}
+    {{> modal.filemenu}}
+    </section>
+    <script src="http://localhost:3000/static/functions/Interface.js"></script>
   </body>
 </html>

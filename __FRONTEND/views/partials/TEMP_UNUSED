@@ -1,0 +1,9 @@
+.bead-road-svg,
+.big-road-svg {
+  overflow: scroll;
+  font-weight: 400;
+  margin-left: 10px;
+  margin-right: 50px;
+  margin-top: -50px;
+}
+<script defer src="http://localhost:3000/static/js/bead.js"></script>
