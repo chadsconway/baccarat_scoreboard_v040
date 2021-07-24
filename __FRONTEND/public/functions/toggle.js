@@ -1,24 +1,30 @@
 // const { listeners } = require("../../app");
-var scoringState;
+var debugToggle = true;
+
 document.addEventListener("DOMContentLoaded", () => {
-  scoringState = (function () {
+  function ScoringState() {
     if (debugToggle === true) {
       console.log("toggle.js");
     }
     document.getElementById("mouse").addEventListener("click", handleClick);
-    functionState = "keys";
-    listeners = [];
-    function hideButton(id) {
+    this.functionState = "keys";
+    this.listeners = [];
+  }
+  /**
+   * 
+   * @param {old ScoringState methods} id 
+   */
+  ScoringState.prototype.hideButton = function(id) {
       document.getElementById(id).removeEventListener("click", handleClick);
       document.getElementById(id).classList.add("hide-button");
       emitState();
     }
-    function showButton(id) {
+  ScoringState.prototype.showButton = function(id) {
       document.getElementById(id).classList.remove("hide-button");
       document.getElementById(id).addEventListener("click", handleClick);
       emitState();
     }
-    function handleClick(e) {
+  ScoringState.prototype.handleClick = function(e) {
       if (debugToggle === true) {
         console.log(e.explicitOriginalTarget.id);
       }
@@ -35,24 +41,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       document.getElementById("keys").addEventListener("click", handleClick);
     }
-    function emitState() {
+  ScoringState.prototype.emitState = function() {
       listeners.forEach(function (val, ind, arr) {
         listeners[ind].call(functionState);
-      });
-    }
-    return {
-      getState: function () {
-        return functionState;
-      },
-      registerListener: function (cb) {
+    });
+  }
+  ScoringState.prototype.getState =  function() {
+    return functionState;
+  };
+  ScoringState.registerListener =  function(cb) {
         if (debugToggle) {
           console.log("adding listener");
         }
         listeners.push(cb);
-      },
-    };
-  })();
-  if (debugToggle === true) {
-    console.log("currentState = " + statefulFunction.getState());
-  }
+  };
 });

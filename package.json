@@ -1,11 +1,11 @@
 {
   "name": "baccarat_sb",
   "main": "/__BACKEND/server.js",
-  "version": "0.0.1",
+  "version": "0.4.0",
   "private": true,
   "scripts": {
     "dev": "nodemon ./__BACKEND/server.js",
-    "deploy": "./__BACKEND/server.js",
+    "start": "./__BACKEND/server.js",
     "test": "jest"
   },
   "dependencies": {

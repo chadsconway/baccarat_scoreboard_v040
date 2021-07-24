@@ -2,13 +2,25 @@ var createError = require("http-errors");
 
 // var test1 = require("./middleware/test.1");
 var express = require("express");
+var app = express();
+app.locals.mids = {
+  base: true,
+  params: true,
+  route: true,
+  secure: true
+  };
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var hbs = require("hbs");
-var devRouter = require("./__BACKEND/routes/router.dev.js");
-var statsRoutes = require("./__BACKEND/routes/routes.stats.js");
+
+/**
+ *  @Routers
+ */
+var middlewareRouter = require("./__BACKEND/routes/router.middleware.js");
+var statsRouter = require("./__BACKEND/routes/routes.stats.js");
 var Stats = require("./__BACKEND/controllers/statistics");
+var UI = require("./__BACKEND/routes/routes.ui.js");
 var stats = new Stats();
 var hbsutils = require("hbs-utils")(hbs);
 var fs = require("fs");
@@ -34,7 +46,7 @@ hbsutils.registerWatchedPartials(
   opts,
   handleDone()
 );
-// var test1 = require("./middleware/test.1");
+var test1 = require("./__BACKEND/middleware/test.1");
 
 /**
  * var hbs = exphbs.create({
@@ -52,40 +64,35 @@ app.use(logger("dev"));
 
 app.locals.stats = stats;
 
+
 /**
  * Expose locals and request locals inside views
  */
 hbs.localsAsTemplateData(app);
-/**
- * home route
- */
-app.get("/", function (req, res) {
-  res.render("layout");
-});
+
 
 // app.locals.title = "Bacarrat Scoreboard";
 
 /**
  * all /dev routes
  */
-app.use("/dev", devRouter);
-app.use("/stats", statsRoutes);
+app.use("/dev", middlewareRouter);
 /**
- * route to access test1 middleware
+ * /stats/ routes
  */
-app.get("/viewdirectory", require("./__BACKEND/middleware/test.1"));
+app.use("/stats", statsRouter);
 
-/**
- * verify __dirname path
- */
-app.get("/verifydirname", (req, res) => {
-  res.send("__dirname in app.js = " + __dirname);
-});
 /**
  * route to access secure middleware
  */
 app.get("/secure", require("./__BACKEND/middleware/secure"));
 
+/**
+ * home route
+ */
+ app.get("/", function (req, res) {
+  res.render("layout");
+});
 /**
  * route to /user/:id? middleware
  *

@@ -45,7 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
   /**
    * Registering listener on state of mouse/buttons toggle
    */
-  scoringState.registerListener(callback);
+  let scoringState = async function(){
+    let ss = await new scoringState();
+    ss.registerListener(callback());
+  }
 
   /**
    *Mouse Events have Props:
