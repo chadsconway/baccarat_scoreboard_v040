@@ -1,4 +1,6 @@
 # Logs
+
+__STORYBOOK/**
 logs
 *.log
 npm-debug.log*
