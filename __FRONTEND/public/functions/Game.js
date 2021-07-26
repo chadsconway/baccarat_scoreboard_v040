@@ -2,10 +2,10 @@ function Game() {
   this.currentRound = 1;
   this.gameID = Date.now();
   this.title = this.gameID;
-  this.beadRoad = new BeadRoad(this.gameID);
   this.rounds = new Array();
   this.rounds.push({ game: this.gameID });
-  this.beadRoad.renderBeadRoad(this.rounds);
+  this.render = new Render();
+
   // this.bigRoad = new BigRoad();
   // this.bigEyeBoyRoad = new BigEyeBoyRoad();
   // this.smallRoad = new SmallRoad();
@@ -78,7 +78,7 @@ Game.prototype.recordRound = function (winner) {
   this.serialize();
 };
 
-Game.prototype.renderBeadRoad = function () {
+Game.prototype.render = function () {
   this.beadRoad.render(this.rounds);
 };
 
@@ -111,7 +111,6 @@ Game.prototype.deserialize = async function (storedString) {
   let arr = await JSON.parse(gameobj.rounds);
   await this.setRounds(arr);
   await this.setCurrentRound(gameobj.currentRound);
-  await this.renderBeadRoad();
   if (debugGame) {
     console.log("deserialize:getgameId: " + this.getGameID());
     console.log("deserialize:getCurrentRound: " + this.getCurrentRound());
@@ -120,7 +119,6 @@ Game.prototype.deserialize = async function (storedString) {
     for (let i = 0; i < this.rounds.length; i++) {
       console.log(this.rounds[i]);
     }
-    console.table(this.getBeadRoad());
   }
 };
 

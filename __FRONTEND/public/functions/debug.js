@@ -1,5 +1,5 @@
 var debugGame = true;
 var debugSprite = false;
-var debugToggle = false;
+var debugToggle = true;
 var debugInterface = false;
-var debugBeadRoad = true;
+var debugBeadRoad = false;

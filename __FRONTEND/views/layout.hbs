@@ -10,8 +10,11 @@
    {{> performance}} 
     {{> meta}}
     {{!-- {{> links}} --}}
+    {{#if devscripts}}
+    {{> scripts.localhost3000}}
+    {{else}}
     {{> scripts}}
-    {{> style.bootstrap}}
+    {{/if}}
     {{> style.grid}}
     {{> style.buttons}}
     {{> style.roads}}

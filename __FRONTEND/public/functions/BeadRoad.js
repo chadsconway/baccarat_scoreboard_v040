@@ -114,9 +114,7 @@ BeadRoad.prototype.renderBeadRoad = function (rounds) {
   const BEADRDsvg = document.querySelector(".bead-road-svg");
   const BEADRDsvgns = "http://www.w3.org/2000/svg";
 
-  let winW = window.innerWidth;
   const BEADRDfakePadding = 5;
-  let winW50 = winW * 0.5;
 
   const BEADRDwidth = 50;
   const BEADRDheight = 50;
@@ -178,36 +176,7 @@ BeadRoad.prototype.renderBeadRoad = function (rounds) {
         fill: "#ffffff",
       });
       BEADRDsvg.appendChild(BEADRDnewRect);
-      // if (placeBead === true) {
-      function beadFactory(winner) {
-        let BEADRDBead = document.createElementNS(BEADRDsvgns, "circle");
-        BEADRDsvg.appendChild(BEADRDBead);
-        BEADRDBead.classList.add("bead-road-bead");
-        function getBeadColor(winner) {
-          let randomNum = Math.ceil(Math.random() * 3);
-          console.log("random = " + randomNum);
-          if (winner === "BANKER") {
-            return "#228be6";
-          } else if (winner === "PLAYER") {
-            return "#f03e3e";
-          } else if (winner === "TIE") {
-            return "#40c057";
-          } else if (winner === "NONE") {
-            return "none";
-          }
-        }
-        let beadColor = getBeadColor(winner);
-        gsap.set(BEADRDBead, {
-          attr: {
-            "data-cell-number": BEADRDcsellnumber,
-            cx: BEADRDnewX + BEADRDwidth / 2,
-            cy: BEADRDnewY + BEADRDheight / 2,
-            r: 25,
-            stroke: "none",
-            fill: beadColor,
-          },
-        });
-      }
+
       //    }
     }
   }

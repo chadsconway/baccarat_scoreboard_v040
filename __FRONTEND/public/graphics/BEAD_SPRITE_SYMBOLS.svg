@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="298.328 400 249.172 150" width="249.172" height="150" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient id="Player" bx:pinned="true">
+      <stop style="stop-color: rgba(34, 139, 230, 0.85);"/>
+    </linearGradient>
+    <linearGradient id="Tie" bx:pinned="true">
+      <stop style="stop-color: rgba(64, 192, 87, 0.79);"/>
+    </linearGradient>
+    <linearGradient id="Banker" bx:pinned="true">
+      <stop style="stop-color: rgba(240, 62, 62, 0.84);"/>
+    </linearGradient>
+    <style bx:fonts="Diplomata SC"></style>
+    <symbol id="big-road-tie-slash-multiple" viewBox="0 0 50 50" bx:pinned="true">
+      <g class="big-road-bead big-road-tie-multiple-stackable" transform="matrix(1, 0, 0, 1, -500, -446)" bx:origin="0.54 0.511436">
+        <line style="stroke-width: 5px; stroke-linecap: round; stroke: rgba(63, 192, 87, 0.9);" x1="550" y1="450.003" x2="500" y2="500.003"/>
+        <text style="fill: rgb(65, 193, 89); font-family: &quot;Archivo Black&quot;; font-size: 52px; stroke: rgb(0, 0, 0); white-space: pre;" x="507.013" y="491.733">2</text>
+      </g>
+    </symbol>
+    <symbol id="big-road-tie-player-multiple" viewBox="0 0 50 56.7031" bx:pinned="true">
+      
+      <g class="big-road-bead big-road-tie-2-over-player" transform="matrix(1, 0, 0, 1, -500, -446)">
+        <circle style="fill: none; stroke: url(#color-0); stroke-width: 5px;" cx="525" cy="475" r="22.5" class="player-bead-road bead-road-bead"/>
+        <line style="stroke-width: 5px; stroke-linecap: round; stroke: rgba(63, 192, 87, 0.9);" x1="550" y1="450.003" x2="500" y2="500.003"/>
+        <text style="fill: rgb(65, 193, 89); font-family: &quot;Archivo Black&quot;; font-size: 52px; stroke: rgb(0, 0, 0); white-space: pre;" x="507.013" y="491.733">2</text>
+      </g>
+    </symbol>
+    <symbol id="big-road-tie-banker-multiple" viewBox="0 0 50 56.7031" bx:pinned="true">
+      
+      <g class="big-road-bead big-road-tie-2-over-banker" transform="matrix(1, 0, 0, 1, -500, -396)">
+        <circle style="fill: none; stroke: url(#color-1); stroke-width: 5px;" cx="525" cy="425" r="22.5" class="banker-bead-big-road big-road-bead"/>
+        <line style="stroke-width: 5px; stroke-linecap: round; stroke: rgba(63, 192, 87, 0.9);" x1="550" y1="400" x2="500" y2="450"/>
+        <text style="fill: rgb(65, 193, 89); font-family: &quot;Archivo Black&quot;; font-size: 52px; stroke: rgb(0, 0, 0); white-space: pre;" x="507.013" y="441.73">2</text>
+      </g>
+    </symbol>
+    <symbol id="big-road-tie-banker" viewBox="0 0 50 50" bx:pinned="true">
+      
+      <g class="big-road-bead big-road-single-tie-banker" transform="matrix(1, 0, 0, 1, -449.9989929199219, -400)">
+        <circle style="fill: none; stroke: url(#color-1); stroke-width: 5px;" cx="475" cy="425" r="22.5" class="banker-bead-big-road big-road-bead"/>
+        <line style="stroke: rgba(63, 192, 86, 0.79); stroke-width: 5px; stroke-linecap: round;" x1="499.999" y1="400" x2="449.999" y2="450"/>
+      </g>
+    </symbol>
+    <symbol id="big-road-tie-player" viewBox="0 0 50 50" bx:pinned="true">
+      
+      <g class="big-road-tie-single-over-player big-road-bead" transform="matrix(1, 0, 0, 1, -450, -450)">
+        <circle style="fill: none; stroke: url(#color-0); stroke-width: 5px;" cx="475" cy="475" r="22.5" class="player-bead-road bead-road-bead"/>
+        <line style="stroke: rgba(63, 192, 86, 0.79); stroke-width: 5px; stroke-linecap: round;" x1="500" y1="450" x2="450" y2="500"/>
+      </g>
+    </symbol>
+    <symbol id="big-road-player" viewBox="0 0 50 50" bx:pinned="true">
+      
+      <circle style="fill: none; stroke: url(#color-0); stroke-width: 5px;" cx="425" cy="475" r="22.5" class="player-bead-road bead-road-bead" transform="matrix(1, 0, 0, 1, -402.5, -452.5)"/>
+    </symbol>
+    <symbol id="big-road-banker" viewBox="0 0 50 50" bx:pinned="true">
+      
+      <circle style="fill: none; stroke: url(#color-1); stroke-width: 5px;" cx="425" cy="425" r="22.5" class="banker-bead-big-road big-road-bead" transform="matrix(1, 0, 0, 1, -402.5, -402.5)"/>
+    </symbol>
+    <symbol id="bead-road-banker" viewBox="0 0 50 50" bx:pinned="true">
+      
+      <circle style="fill: rgb(240, 62, 62);" cx="374.169" cy="425" r="25" class="BANKER BEAD BIG_ROAD banker-bead-big-road" transform="matrix(1, 0, 0, 1, -349.16900634765625, -400)">
+        
+      </circle>
+    </symbol>
+    <symbol id="Banker-Bead-Road-Initial" viewBox="0 0 50 50" bx:pinned="true">
+      <g transform="matrix(1, 0, 0, 1, -308.59375, -403.781005859375)">
+        
+        <circle style="fill: rgb(240, 62, 62);" cx="334.508" cy="428.781" r="25" class="BANKER BEAD BIG_ROAD banker-bead-big-road"/>
+        <text style="font-family: &quot;Diplomata SC&quot;; font-size: 35px; white-space: pre;" x="308.596" y="440.143">B</text>
+      </g>
+    </symbol>
+    <symbol id="Player-Bead-Road-Initial" viewBox="0 0 50 50" bx:pinned="true">
+      <g transform="matrix(1, 0, 0, 1, -308.578125, -479.9840087890625)">
+        
+        <circle style="fill: url(#color-0);" cx="334.148" cy="504.984" r="25" class="player-bead-road bead-road-bead"/>
+        <text style="font-family: &quot;Diplomata SC&quot;; font-size: 35px; white-space: pre;" x="308.586" y="516.343">P</text>
+      </g>
+    </symbol>
+    <symbol id="Tie-Bead-Road-Initial" viewBox="0 0 50 50" bx:pinned="true">
+      <g transform="matrix(1, 0, 0, 1, -305.32000732421875, -548.0549926757812)">
+        
+        <circle style="fill: url(#color-2);" cx="330.32" cy="573.055" r="25" class="tie-bead-road bead-road-bead"/>
+        <text style="font-family: &quot;Diplomata SC&quot;; font-size: 35px; white-space: pre;" x="311.012" y="584.412">T</text>
+      </g>
+    </symbol>
+    <symbol id="bead-road-player" viewBox="0 0 50 50" bx:pinned="true">
+      
+      <circle style="fill: url(#color-0);" cx="374.169" cy="475" r="25" class="player-bead-road bead-road-bead" transform="matrix(1, 0, 0, 1, -349.16900634765625, -450)">
+      </circle>
+    </symbol>
+    <symbol id="bead-road-tie" viewBox="0 0 50 50" bx:pinned="true">
+      
+      <circle style="fill: url(#color-2);" cx="374.169" cy="525" r="25" class="tie-bead-road bead-road-bead" transform="matrix(1, 0, 0, 1, -349.16900634765625, -500)">
+      </circle>
+    </symbol>
+    <symbol id="big-road-tie-slash" viewBox="0 0 50 50" bx:pinned="true">
+      
+      <line style="stroke: rgba(63, 192, 86, 0.79); stroke-width: 5px; stroke-linecap: round;" x1="500" y1="500" x2="450" y2="550" class="big-road-bead big-road-tie-stackable" transform="matrix(1, 0, 0, 1, -450, -500)"/>
+    </symbol>
+  </defs>
+</svg>

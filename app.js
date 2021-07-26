@@ -7,8 +7,8 @@ app.locals.mids = {
   base: true,
   params: true,
   route: true,
-  secure: true
-  };
+  secure: true,
+};
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
@@ -64,12 +64,10 @@ app.use(logger("dev"));
 
 app.locals.stats = stats;
 
-
 /**
  * Expose locals and request locals inside views
  */
 hbs.localsAsTemplateData(app);
-
 
 // app.locals.title = "Bacarrat Scoreboard";
 
@@ -88,10 +86,17 @@ app.use("/stats", statsRouter);
 app.get("/secure", require("./__BACKEND/middleware/secure"));
 
 /**
+ *route for tests and admin
+ */
+app.get("/admin", (req, res) => {
+  res.render("admin");
+});
+
+/**
  * home route
  */
- app.get("/", function (req, res) {
-  res.render("layout");
+app.get("/", function (req, res) {
+  res.render("layout", { devscripts: true });
 });
 /**
  * route to /user/:id? middleware

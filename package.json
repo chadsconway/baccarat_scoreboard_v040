@@ -4,7 +4,7 @@
   "version": "0.4.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon ./__BACKEND/server.js",
+    "dev": "./__BACKEND/server.js",
     "start": "./__BACKEND/server.js",
     "test": "jest"
   },
@@ -21,5 +21,8 @@
     "jest": "^27.0.6",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.9"
+  },
+  "devDependencies": {
+    "grunt": "^1.4.1"
   }
 }

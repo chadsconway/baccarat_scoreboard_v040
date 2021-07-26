@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="298.328 400 249.172 150" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient id="color-0" bx:pinned="true">
+      <title>Player</title>
+      <stop style="stop-color: rgba(34, 139, 230, 0.85);"/>
+    </linearGradient>
+    <linearGradient id="color-2" bx:pinned="true">
+      <title>Tie</title>
+      <stop style="stop-color: rgba(64, 192, 87, 0.79);"/>
+    </linearGradient>
+    <linearGradient id="color-1" bx:pinned="true">
+      <title>Banker</title>
+      <stop style="stop-color: rgba(240, 62, 62, 0.84);"/>
+    </linearGradient>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, -10.26562, -3.78101)">
+    <title>Banker-Bead-Road-Initial</title>
+    <circle style="fill: rgb(240, 62, 62);" cx="334.508" cy="428.781" r="25" class="BANKER BEAD BIG_ROAD banker-bead-big-road"/>
+    <text style="font-family: &quot;Diplomata SC&quot;; font-size: 35px; white-space: pre;" x="308.596" y="440.143">B</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, -10.25, -29.98401)">
+    <title>Playter-Bead-Road-Initial</title>
+    <circle style="fill: url(#color-0);" cx="334.148" cy="504.984" r="25" class="player-bead-road bead-road-bead"/>
+    <text style="font-family: &quot;Diplomata SC&quot;; font-size: 35px; white-space: pre;" x="308.586" y="516.343">P</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, -6.99188, -48.055)">
+    <title>Tie-Bead-Road-Initial</title>
+    <circle style="fill: url(#color-2);" cx="330.32" cy="573.055" r="25" class="tie-bead-road bead-road-bead"/>
+    <text style="font-family: &quot;Diplomata SC&quot;; font-size: 35px; white-space: pre;" x="311.012" y="584.412">T</text>
+  </g>
+  <circle style="fill: rgb(240, 62, 62);" cx="374.169" cy="425" r="25" class="BANKER BEAD BIG_ROAD banker-bead-big-road">
+    <title>bead-banker</title>
+  </circle>
+  <circle style="fill: url(#color-0);" cx="374.169" cy="475" r="25" class="player-bead-road bead-road-bead">
+    <title>bead-player</title>
+  </circle>
+  <circle style="fill: url(#color-2);" cx="374.169" cy="525" r="25" class="tie-bead-road bead-road-bead">
+    <title>bead-tie</title>
+  </circle>
+  <circle style="fill: none; stroke: url(#color-1); stroke-width: 5px;" cx="425" cy="425" r="22.5" class="banker-bead-big-road big-road-bead"/>
+  <circle style="fill: none; stroke: url(#color-0); stroke-width: 5px;" cx="425" cy="475" r="22.5" class="player-bead-road bead-road-bead"/>
+  <circle style="fill: none; stroke: url(#color-2); stroke-width: 5px;" cx="425" cy="525" r="22.5" class="tie-big-road big-road-bead"/>
+  <g class="big-road-bead big-road-single-tie-banker">
+    <circle style="fill: none; stroke: url(#color-1); stroke-width: 5px;" cx="475" cy="425" r="22.5" class="banker-bead-big-road big-road-bead"/>
+    <line style="stroke: rgba(63, 192, 86, 0.79); stroke-width: 5px; stroke-linecap: round;" x1="499.999" y1="400" x2="449.999" y2="450"/>
+  </g>
+  <g class="big-road-tie-single-over-player big-road-bead">
+    <circle style="fill: none; stroke: url(#color-0); stroke-width: 5px;" cx="475" cy="475" r="22.5" class="player-bead-road bead-road-bead"/>
+    <line style="stroke: rgba(63, 192, 86, 0.79); stroke-width: 5px; stroke-linecap: round;" x1="500" y1="450" x2="450" y2="500"/>
+  </g>
+  <g class="big-road-bead big-road-tie-2-over-banker">
+    <circle style="fill: none; stroke: url(#color-1); stroke-width: 5px;" cx="525" cy="425" r="22.5" class="banker-bead-big-road big-road-bead"/>
+    <line style="stroke-width: 5px; stroke-linecap: round; stroke: rgba(63, 192, 87, 0.9);" x1="550" y1="400" x2="500" y2="450"/>
+    <text style="fill: rgb(65, 193, 89); font-family: &quot;Archivo Black&quot;; font-size: 52px; stroke: rgb(0, 0, 0); white-space: pre;" x="507.013" y="441.73">2</text>
+  </g>
+  <g class="big-road-bead big-road-tie-2-over-player">
+    <circle style="fill: none; stroke: url(#color-0); stroke-width: 5px;" cx="525" cy="475" r="22.5" class="player-bead-road bead-road-bead"/>
+    <line style="stroke-width: 5px; stroke-linecap: round; stroke: rgba(63, 192, 87, 0.9);" x1="550" y1="450.003" x2="500" y2="500.003"/>
+    <text style="fill: rgb(65, 193, 89); font-family: &quot;Archivo Black&quot;; font-size: 52px; stroke: rgb(0, 0, 0); white-space: pre;" x="507.013" y="491.733">2</text>
+  </g>
+  <line style="stroke: rgba(63, 192, 86, 0.79); stroke-width: 5px; stroke-linecap: round;" x1="500" y1="500" x2="450" y2="550" class="big-road-bead big-road-tie-stackable"/>
+  <g class="big-road-bead big-road-tie-multiple-stackable" transform="matrix(1, 0, 0, 1, -2, 50)" bx:origin="0.54 0.511436">
+    <line style="stroke-width: 5px; stroke-linecap: round; stroke: rgba(63, 192, 87, 0.9);" x1="550" y1="450.003" x2="500" y2="500.003"/>
+    <text style="fill: rgb(65, 193, 89); font-family: &quot;Archivo Black&quot;; font-size: 52px; stroke: rgb(0, 0, 0); white-space: pre;" x="507.013" y="491.733">2</text>
+  </g>
+</svg>

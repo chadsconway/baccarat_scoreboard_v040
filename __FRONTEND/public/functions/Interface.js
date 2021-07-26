@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     game = new Game();
     game.deserialize(localStorage.getItem("baccarat_game"));
-    game.renderBeadRoad();
+    game.render();
   } else {
     if (debugInterface) {
       console.log("no game found in local storage, initializing New Game");
