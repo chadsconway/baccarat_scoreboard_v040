@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (debugInterface) {
       console.log("game found in local storage");
     }
-    game = new Game();
+    game = {new Game()} => (reject, resolve){
     game.deserialize(localStorage.getItem("baccarat_game"));
-    game.render();
+    }
   } else {
     if (debugInterface) {
       console.log("no game found in local storage, initializing New Game");
@@ -38,17 +38,19 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("keyboard input active");
       }
       document.addEventListener("keypress", function (e) {
-        console.log(e);
+        if (debugInterface) {
+          console.log(e);
+        }
       });
     }
   }
   /**
    * Registering listener on state of mouse/buttons toggle
    */
-  let scoringState = async function(){
+  let scoringState = async function () {
     let ss = await new scoringState();
     ss.registerListener(callback());
-  }
+  };
 
   /**
    *Mouse Events have Props:

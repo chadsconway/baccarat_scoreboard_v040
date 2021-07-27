@@ -1,14 +1,9 @@
+require("dotenv").config();
 var createError = require("http-errors");
-
+var devscripts = process.env.DEVSCRIPTS;
 // var test1 = require("./middleware/test.1");
 var express = require("express");
 var app = express();
-app.locals.mids = {
-  base: true,
-  params: true,
-  route: true,
-  secure: true,
-};
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
@@ -17,7 +12,7 @@ var hbs = require("hbs");
 /**
  *  @Routers
  */
-var middlewareRouter = require("./__BACKEND/routes/router.middleware.js");
+// var middlewareRouter = require("./__BACKEND/routes/router.middleware.js");
 var statsRouter = require("./__BACKEND/routes/routes.stats.js");
 var Stats = require("./__BACKEND/controllers/statistics");
 var UI = require("./__BACKEND/routes/routes.ui.js");
@@ -46,7 +41,7 @@ hbsutils.registerWatchedPartials(
   opts,
   handleDone()
 );
-var test1 = require("./__BACKEND/middleware/test.1");
+//var test1 = require("./__BACKEND/middleware/test.1");
 
 /**
  * var hbs = exphbs.create({
@@ -74,7 +69,7 @@ hbs.localsAsTemplateData(app);
 /**
  * all /dev routes
  */
-app.use("/dev", middlewareRouter);
+//app.use("/dev", middlewareRouter);
 /**
  * /stats/ routes
  */
@@ -83,7 +78,7 @@ app.use("/stats", statsRouter);
 /**
  * route to access secure middleware
  */
-app.get("/secure", require("./__BACKEND/middleware/secure"));
+// app.get("/secure", require("./__BACKEND/middleware/secure"));
 
 /**
  *route for tests and admin
@@ -96,7 +91,7 @@ app.get("/admin", (req, res) => {
  * home route
  */
 app.get("/", function (req, res) {
-  res.render("layout", { devscripts: false });
+  res.render("layout", { devscripts: true });
 });
 /**
  * route to /user/:id? middleware

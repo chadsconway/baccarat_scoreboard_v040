@@ -1,37 +1,26 @@
-function Render() {
-  this.bead = document.querySelector(".bead-road-svg");
-  this.big = document.querySelector(".big-road-svg");
-  this.small = document.querySelector(".small-road-svg");
-  this.bigeye = document.querySelector(".bigeye-road-svg");
-  this.cockroach = document.querySelector(".cockroach-road-svg");
+function Render(id) {
+  this.gameid = id;
+  this.beadroad = {};
+  this.bigroad = {};
+  this.bigroad.elem = document.querySelector(".big-road-svg");
+  this.smallroad = {};
+  this.smallroad.elem = document.querySelector(".small-road-svg");
+  this.bigeyeroad = {};
+  this.bigeyeroad.elem = document.querySelector(".bigeye-road-svg");
+  this.cockroachroad = {};
+  this.cockroachroad.elem = document.querySelector(".cockroach-road-svg");
 }
-// if (placeBead === true) {
-function beadFactory(winner) {
-  let BEADRDBead = document.createElementNS(BEADRDsvgns, "circle");
-  BEADRDsvg.appendChild(BEADRDBead);
-  BEADRDBead.classList.add("bead-road-bead");
-  function getBeadColor(winner) {
-    let randomNum = Math.ceil(Math.random() * 3);
-    console.log("random = " + randomNum);
-    if (winner === "BANKER") {
-      return "#228be6";
-    } else if (winner === "PLAYER") {
-      return "#f03e3e";
-    } else if (winner === "TIE") {
-      return "#40c057";
-    } else if (winner === "NONE") {
-      return "none";
-    }
-  }
-  let beadColor = getBeadColor(winner);
-  gsap.set(BEADRDBead, {
-    attr: {
-      "data-cell-number": BEADRDcsellnumber,
-      cx: BEADRDnewX + BEADRDwidth / 2,
-      cy: BEADRDnewY + BEADRDheight / 2,
-      r: 25,
-      stroke: "none",
-      fill: beadColor,
-    },
-  });
-}
+Render.prototype.createBoards = function () {
+  this.beadroad = new BeadRoad(this.gameid);
+  this.beadroad.createBoard();
+  // this.bigRoad.road = new BigRoad();
+  // this.bigeyeroad.road = new BigEyeBoyRoad();
+  // this.smallroad = new SmallRoad();
+  // this.cockroachroad = new CockRoachRoad();
+};
+Render.prototype.clearAll = function () {
+  this.beadroad.clearAll();
+};
+Render.prototype.setCells = function (winner) {
+  this.beadroad.setCell(winner);
+};

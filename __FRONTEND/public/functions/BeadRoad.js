@@ -18,75 +18,94 @@ Cell.prototype.addRound = function (round) {
 function BeadRoad(gameID) {
   this.cellList = new Array();
   this.cellList.push({ game: gameID });
-  for (let i = 1; i < 361; i++) {
-    this.cellList.push({ winner: "NONE" });
-  }
-  console.log("new beadroad");
-  console.log(this.cellList);
+  this.activeCell = 1;
   this.activeRow = 1;
   this.activeColumn = 1;
 }
-BeadRoad.prototype.getBeadSVG = function (winner) {
-  let svgelement = document.createElementNS("http://www.w3.org/2000/svg", "g");
-  let beadSVG;
-  if (winner === "banker") {
-    beadSVG = `
-  <svg class="bead">
-  <circle id="bead-road-banker" style="fill: none; stroke: url(#color-1); stroke-width: 5px;" cx="25" cy="125" r="22.5" class="banker-bead-big-road big-road-bead"/>
-  </svg>
-  `;
-  }
-};
-BeadRoad.prototype.getNextCell = function () {
-  // let row = this.activeRow + 1;
+BeadRoad.prototype.incrementCell = function () {
+  this.activeCell++;
   let nextCell;
   if (this.activeColumn === 60 && this.activeRow === 6) {
     // todo handle full bead road
+    this.shiftColumnsLeft();
+    this.activeRow = 1;
   } else if (this.activeRow % 6 === 0) {
     this.activeColumn++;
     this.activeRow = 1;
-    nextCell = {
-      r: this.activeRow,
-      c: this.activeColumn,
-    };
   } else {
     this.activeRow++;
-    nextCell = {
-      r: this.activeRow,
-      c: this.activeColumn,
-    };
   }
-  return nextCell;
 };
-BeadRoad.prototype.setNextCell = function (round) {
-  let next = this.getNextCell();
-  let r = next.r;
-  let c = next.c;
-  let bead = new Bead("beadroad", round);
-  this.road[r][c] = bead;
-  this.render();
+BeadRoad.prototype.createBead = function (winner, cell) {
+  const beadcolor = this.getBeadColor(winner);
+  const coords = this.getCellCoords(cell);
+  const ns = "http://www.w3.org/2000/svg";
+  // const beadsvg = document.createElementNS(ns, "svg");
+  const bead = document.createElementNS(ns, "circle");
+  // beadsvg.setAttribute("viewBox", "0 0 50 50");
+  bead.setAttribute("fill", beadcolor);
+  bead.setAttribute("cx", 25);
+  bead.setAttribute("cy", 25);
+  bead.setAttribute("r", 25);
+  bead.setAttribute("x", coords.x);
+  bead.setAttribute("y", coords.y);
+  bead.setAttribute("data-bead-cell", cell.u);
+  bead.classList.add(`bead-cell-${cell.u}`);
+  //  beadsvg.appendChild(bead);
+  return bead;
 };
-BeadRoad.prototype.getCell = function (r, c) {
-  return this.cells[r][c];
-};
-BeadRoad.prototype.getCoordsByCellNum = function (round) {
-  let c = Math.floor(round / 6) + 1;
-  let r = round - (c - 1) * 6;
-  let coords = {
-    x: c,
-    y: r,
+
+BeadRoad.prototype.setCell = function (winner) {
+  let cell = {};
+  cell.u = this.activeCell;
+  cell.r = this.activeRow;
+  cell.c = this.activeColumn;
+  let bead = this.createBead(winner, cell);
+  let elem = document.querySelector(".bead-road-svg");
+  elem.appendChild(bead);
+  this.road[cell.u] = {
+    cell: cell.u,
+    row: cell.r,
+    column: cell.c,
+    winner: winner,
   };
-  console.log("coords = " + coords);
+};
+
+BeadRoad.prototype.getCoordsByCellNum = function (round) {
+  let cell = {};
+  cell.c = Math.floor(round / 6) + 1;
+  cell.r = round - (c - 1) * 6;
+  let coords = getCellCoords(cell);
   return coords;
 };
 BeadRoad.prototype.render = function () {
   let board = document.getElementById("beadroad");
 };
-BeadRoad.prototype.getNextCellOriginCoords = function () {
-  let nextCell = this.getNextCell();
-  let x = nextCell.c * 50 - 50;
-  let y = nextCell.r * 50 - 50;
-  console.log("x = " + x + " y = " + y);
+BeadRoad.prototype.getCellCoords = function (cell) {
+  let column = cell.c;
+  let row = cell.r;
+  let x = column * 50 - 50;
+  let y = row * 50 - 50;
+  return { x: x, y: y };
+};
+BeadRoad.prototype.shiftColumnsLeft = function () {
+  // todo
+};
+BeadRoad.prototype.clearCell = function (node, cell) {
+  let parent = document.querySelector(".bead-road-svg");
+  if (node === "bead") {
+    try {
+      let selector = `.bead-cell-${cell}`;
+      let node = document.querySelector(selector);
+      parent.removeChild(node);
+    } catch (err) {
+      return "not_a_node";
+    }
+  }
+  // todo
+};
+BeadRoad.prototype.clearAll = function () {
+  // todo
 };
 
 /**
@@ -98,23 +117,30 @@ BeadRoad.prototype.getNextCellOriginCoords = function () {
  *
  *
  */
+BeadRoad.prototype.getBeadColor = function (winner) {
+  if (winner === "BANKER") {
+    return "#228be6";
+  } else if (winner === "PLAYER") {
+    return "#f03e3e";
+  } else if (winner === "TIE") {
+    return "#40c057";
+  } else if (winner === "NONE") {
+    return "none";
+  }
+};
 
 BeadRoad.prototype.setCell = function (cellNum, winner) {};
 
-BeadRoad.prototype.renderBeadRoad = function (rounds) {
-  if (rounds.length > 1) {
-    for (let h = 1; h <= rounds.length; h++) {
-      console.log(rounds[h].winner);
-      this.cellList[h].winner = rounds[h].winner;
-    }
-  }
+BeadRoad.prototype.createBoard = function () {
   if (debugBeadRoad) {
     console.log("beadRoad.cellList = ", this.cellList);
   }
   const BEADRDsvg = document.querySelector(".bead-road-svg");
   const BEADRDsvgns = "http://www.w3.org/2000/svg";
 
+  let winW = window.innerWidth;
   const BEADRDfakePadding = 5;
+  let winW50 = winW * 0.5;
 
   const BEADRDwidth = 50;
   const BEADRDheight = 50;
@@ -154,7 +180,6 @@ BeadRoad.prototype.renderBeadRoad = function (rounds) {
   for (let k = 0; k < BEADRDcolumns; k++) {
     for (let m = 0; m < BEADRDrows; m++) {
       BEADRDcounter++;
-      let winner = this.cellList[BEADRDcounter].winner;
       let BEADRDcellnumber = `${BEADRDcounter}`;
       let BEADRDcellrow = `${m + 1}`;
       let BEADRDcellcolumn = `${k + 1}`;
@@ -176,7 +201,36 @@ BeadRoad.prototype.renderBeadRoad = function (rounds) {
         fill: "#ffffff",
       });
       BEADRDsvg.appendChild(BEADRDnewRect);
-
+      // if (placeBead === true) {
+      function beadFactory(winner) {
+        let BEADRDBead = document.createElementNS(BEADRDsvgns, "circle");
+        BEADRDsvg.appendChild(BEADRDBead);
+        BEADRDBead.classList.add("bead-road-bead");
+        function getBeadColor(winner) {
+          let randomNum = Math.ceil(Math.random() * 3);
+          console.log("random = " + randomNum);
+          if (winner === "BANKER") {
+            return "#C92A2A";
+          } else if (winner === "PLAYER") {
+            return "#1864AB";
+          } else if (winner === "TIE") {
+            return "#2B8A3E";
+          } else if (winner === "NONE") {
+            return "none";
+          }
+        }
+        let beadColor = getBeadColor(winner);
+        gsap.set(BEADRDBead, {
+          attr: {
+            "data-cell-number": BEADRDcsellnumber,
+            cx: BEADRDnewX + BEADRDwidth / 2,
+            cy: BEADRDnewY + BEADRDheight / 2,
+            r: 25,
+            stroke: "none",
+            fill: beadColor,
+          },
+        });
+      }
       //    }
     }
   }

@@ -4,13 +4,10 @@ function Game() {
   this.title = this.gameID;
   this.rounds = new Array();
   this.rounds.push({ game: this.gameID });
-  this.render = new Render();
-
-  // this.bigRoad = new BigRoad();
-  // this.bigEyeBoyRoad = new BigEyeBoyRoad();
-  // this.smallRoad = new SmallRoad();
-  // this.cockRoachRoad = new CockRoachRoad();
+  this.render = new Render(this.gameID);
+  this.render.createBoards();
 }
+
 Game.prototype.getGameID = function () {
   return this.gameID;
 };
@@ -74,12 +71,15 @@ Game.prototype.recordRound = function (winner) {
     console.table(this.rounds);
   }
   this.incCurrentRound();
-  this.renderBeadRoad();
   this.serialize();
+  this.render.setCells(winner);
 };
 
-Game.prototype.render = function () {
-  this.beadRoad.render(this.rounds);
+Game.prototype.renderRefresh = function () {
+  this.render.clearAll();
+  this.rounds.forEach(function (val, ind, arr) {
+    this.render.recordRound(val.winner);
+  });
 };
 
 Game.prototype.log = function () {
@@ -93,7 +93,6 @@ Game.prototype.serialize = function () {
     rounds: roundsString,
     currentRound: this.currentRound,
     title: this.title,
-    beadRoad: this.beadRoad,
   };
   myobj_serialized = JSON.stringify(myobj);
   window.localStorage.setItem("baccarat_game", myobj_serialized);
@@ -120,7 +119,9 @@ Game.prototype.deserialize = async function (storedString) {
       console.log(this.rounds[i]);
     }
   }
+  await this.renderRefresh();
 };
+Game.prototype.render = function () {};
 
 function GameLibrary() {
   this.games = [];

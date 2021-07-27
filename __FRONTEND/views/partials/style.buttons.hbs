@@ -1,16 +1,26 @@
 <style>
+  :root{
+--banker: #C92A2A;
+--player:#1864AB;
+--tie: #2B8A3E;
+--utility: darkslategrey;
+--utility-light: burlywood;
+}
   .button-group{
     line-height: 35px;
 }
 .scoring-buttons{
-    margin-top: 30px;
+    width: 150px;
     line-height: 30px;
 }
 .edit-buttons{
     line-height: 30px;
 }
 .toggle-buttons{
+    margin-right: 100px;
     line-height: 30px;
+    background-color: var(--utility);
+    color: white;
 }
 .generate-buttons{
     margin-top: 15px;
@@ -18,36 +28,79 @@
     float: right;
 }
 button{
+    width: 150px;
+    height: 55px;
     font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     font-family: Comfortaa, cursive;
     padding: 10px;
 }
 .banker-button{
-    background-color: red;
+    background-color: var(--banker);
     color: white;
 }
 .player-button{
-    background-color: blue;
+    background-color: var(--player);
     color: white;
 }
 .tie-button{
-    background-color: green;
+    background-color:var(--tie);
     color: white;
 }
 button:hover{
     opacity: 0.8;
     box-shadow: 5px 10px 18px #888888;
 }
-.edit-buttons{
-    float: right;
-    margin-right: 100px;
-
+.edit-buttons-group{
+    display: inline-flex;
+    flex-direction: row;
+    line-height: 30px;
+    height: 55px;
 }
 .undo-button{
-    float: right;
+    background-color: var(--utility);
+    color: white;
 }
-.toggle-buttons{
-    float: right;
-    margin-right: 100px;
+.redo-button{
+    background-color: var(--utility);
+    color: white;
+}
+
+.file-buttons-group{
+    display: inline;    
+}
+.save-button{
+    background-color: var(--utility-light);
+
+    margin-right: 0;
+}
+.file-button{
+    margin-left: 0;
+    background-color: var(--utility-light);
+
+}
+.button-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-end;
+    height: 55px;
+    overflow: hidden;
+}
+.scoring-buttons-group{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-basis: 33%;
+    flex-grow: 1;
+}
+.row{
+    overflow: hidden;
+    margin-top: 30px;
+}
+.nav-row{
+    height: 60px;
 }
 </style>

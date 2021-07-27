@@ -11,11 +11,7 @@
     <div class="buttons">
       <button onclick="testBeadRoad()">Test Bead Road</button>
     </div>
-    {{#if devscripts}}
     <script src="http://localhost:3000/static/functions/BeadRoad.js"></script>
-    {{else}}
-    <script src="http://codecraft.site/static/functions/BeadRoad.js"></script>
-    {{/if}}
     <script>
       function testBeadRoad() {
         let br = new BeadRoad();
