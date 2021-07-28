@@ -3,9 +3,10 @@ function Game() {
   this.gameID = Date.now();
   this.title = this.gameID;
   this.rounds = new Array();
+  this.stats = new Stats();
   this.rounds.push({ game: this.gameID });
-  this.render = new Render(this.gameID);
-  this.render.createBoards();
+  this.beadRoad = new BeadRoad();
+  this.beadRoad.createBoard();
 }
 
 Game.prototype.getGameID = function () {
@@ -48,15 +49,16 @@ Game.prototype.incCurrentRound = function () {
   }
 };
 Game.prototype.recordRound = function (winner) {
+  /**
+   * Game Object housekeeping
+   */
   let round = new Round();
   round.num = this.getCurrentRound();
   round.game = this.getGameID();
   round.winner = winner;
-  if (debugGame) {
-    console.log("GAME.PROTOTYPE.RECORDROUND::");
-    console.log("console.table(round):");
-    console.table(round);
-  }
+  /**
+   * if new game, initialize an array
+   */
   if (this.getRounds() === undefined) {
     let rounds = new Array(round);
     this.setRounds(rounds);
@@ -65,21 +67,37 @@ Game.prototype.recordRound = function (winner) {
     rounds.push(round);
     this.setRounds(rounds);
   }
-  if (debugGame) {
-    console.log("this.rounds.length = " + this.rounds.length);
-    console.log("After this.rounds.push(round), console.table(rounds):");
-    console.table(this.rounds);
-  }
-  this.incCurrentRound();
+  // store in localStorage
   this.serialize();
-  this.render.setCells(winner);
+  this.incCurrentRound();
+  this.publishRound(winner);
 };
-
-Game.prototype.renderRefresh = function () {
-  this.render.clearAll();
-  this.rounds.forEach(function (val, ind, arr) {
-    this.render.recordRound(val.winner);
-  });
+Game.prototype.publishRound = function (winner) {
+  /**
+   *
+   * Updates needed each new round:
+   * Stats
+   * Beadroad
+   * BigRoad
+   * BigEyeBoy
+   * Small
+   * Cockroach
+   *
+   *
+   */
+  /**
+   * Update stats
+   */
+  if (winner === "BANKER") {
+    this.stats.incBanker();
+  } else if (winner === "PLAYER") {
+    this.stats.incPlayer();
+  } else {
+    this.stats.incTie();
+  }
+  this.stats.incRounds();
+  this.stats.updateStatsDisplay();
+  this.beadRoad.publishRound(winner);
 };
 
 Game.prototype.log = function () {
@@ -105,11 +123,17 @@ Game.prototype.deserialize = async function (storedString) {
   }
   await this.setGameID(gameobj.id);
   this.rounds = new Array();
+
   await this.rounds.push({ game: this.gameID });
 
   let arr = await JSON.parse(gameobj.rounds);
-  await this.setRounds(arr);
-  await this.setCurrentRound(gameobj.currentRound);
+  if (debugGame) {
+    console.log("in Game.prototype.deserialize:");
+    console.log(arr);
+  }
+
+  // await this.setRounds(arr);
+  // await this.setCurrentRound(gameobj.currentRound);
   if (debugGame) {
     console.log("deserialize:getgameId: " + this.getGameID());
     console.log("deserialize:getCurrentRound: " + this.getCurrentRound());
@@ -119,7 +143,6 @@ Game.prototype.deserialize = async function (storedString) {
       console.log(this.rounds[i]);
     }
   }
-  await this.renderRefresh();
 };
 Game.prototype.render = function () {};
 

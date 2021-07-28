@@ -1,18 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let game;
+  let game = new Game();
   if (localStorage.getItem("baccarat_game")) {
     if (debugInterface) {
       console.log("game found in local storage");
     }
-    game = {new Game()} => (reject, resolve){
     game.deserialize(localStorage.getItem("baccarat_game"));
-    }
-  } else {
-    if (debugInterface) {
-      console.log("no game found in local storage, initializing New Game");
-    }
-    game = new Game();
   }
+
   // let bigRoad = new BigRoad();
   // let bead_road = document.querySelector(".bead-road-svg");
   // bead_road.addEventListener("mouseover", handleBeadRoadHover);
@@ -106,104 +100,118 @@ document.addEventListener("DOMContentLoaded", function () {
     if (debugInterface) {
       console.log(e.originalTarget);
     }
-    game.recordRound("banker");
+    game.recordRound("BANKER");
     game.log();
   }
 
-  async function handleClickPlayer(e) {
+  function handleClickPlayer(e) {
     e.preventDefault();
     // todo
     if (debugInterface) {
       console.log(e.originalTarget);
     }
-    game.recordRound("player");
+    game.recordRound("PLAYER");
     game.log();
   }
 
-  async function handleClickTie(e) {
+  function handleClickTie(e) {
     e.preventDefault();
     // todo
     if (debugInterface) {
       console.log(e.originalTarget);
     }
-    game.recordRound("tie");
+    game.recordRound("TIE");
     game.log();
   }
   function handleClickUndo(e) {
     // todo
+    if (debugInterface) {
+      console.log(e.originalTarget);
+    }
   }
   function handleClickRedo(e) {
     // todo
+    if (debugInterface) {
+      console.log(e.originalTarget);
+    }
   }
 
-  async function handleClickKeyboard(e) {
+  function handleClickKeyboard(e) {
     // todo
-    console.log(e.originalTarget);
+    if (debugInterface) {
+      console.log(e.originalTarget);
+    }
   }
 
-  async function handleClickMouse(e) {
+  function handleClickMouse(e) {
     // todo
-    console.log(e.originalTarget);
+    if (debugInterface) {
+      console.log(e.originalTarget);
+    }
   }
 
-  async function handleClickFile(e) {
+  function handleClickFile(e) {
     // todo
-    console.log(e.originalTarget);
+    if (debugInterface) {
+      console.log(e.originalTarget);
+    }
   }
 
-  async function handleClickSave(e) {
+  function handleClickSave(e) {
     // todo
-    console.log(e.originalTarget);
+    if (debugInterface) {
+      console.log(e.originalTarget);
+    }
   }
 
   /**
    * Data Handling Stubs
    */
-  async function loadFile() {
+  function loadFile() {
     // todo
     console.log(e.originalTarget);
   }
-  async function hydrateBeadRoad() {
+  function hydrateBeadRoad() {
     // todo
   }
 
-  async function hydrateBigRoad() {
+  function hydrateBigRoad() {
     // todo
   }
 
-  async function generateDerivedRoads() {
+  function generateDerivedRoads() {
     // todo
   }
 
   /**
    * View functions
    */
-  async function render() {
+  function render() {
     // todoincRound
   }
 
-  async function resize(e) {
+  function resize(e) {
     // todo
     console.log(e.originalTarget);
   }
 
-  async function contextMenu() {
+  function contextMenu() {
     // todo
   }
 
-  async function editMode() {
+  function editMode() {
     // todo
   }
 
-  async function entryMode() {
+  function entryMode() {
     // todo
   }
 
-  async function saveGame() {
+  function saveGame() {
     // todo
   }
 
-  async function newGame() {
+  function newGame() {
     // todo
   }
   function handleBeadRoadHover(e) {

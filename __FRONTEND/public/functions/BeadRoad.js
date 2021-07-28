@@ -22,6 +22,22 @@ function BeadRoad(gameID) {
   this.activeRow = 1;
   this.activeColumn = 1;
 }
+BeadRoad.prototype.publishRound = function (winner) {
+  let cell = {};
+  cell.u = this.activeCell;
+  cell.r = this.activeRow;
+  cell.c = this.activeColumn;
+  let bead = this.createBead(winner, cell);
+  let elem = document.querySelector(".bead-road-svg");
+  elem.appendChild(bead);
+  this.cellList[cell.u] = {
+    cell: cell.u,
+    row: cell.r,
+    column: cell.c,
+    winner: winner,
+  };
+  this.incrementCell();
+};
 BeadRoad.prototype.incrementCell = function () {
   this.activeCell++;
   let nextCell;
@@ -53,22 +69,6 @@ BeadRoad.prototype.createBead = function (winner, cell) {
   bead.classList.add(`bead-cell-${cell.u}`);
   //  beadsvg.appendChild(bead);
   return bead;
-};
-
-BeadRoad.prototype.setCell = function (winner) {
-  let cell = {};
-  cell.u = this.activeCell;
-  cell.r = this.activeRow;
-  cell.c = this.activeColumn;
-  let bead = this.createBead(winner, cell);
-  let elem = document.querySelector(".bead-road-svg");
-  elem.appendChild(bead);
-  this.road[cell.u] = {
-    cell: cell.u,
-    row: cell.r,
-    column: cell.c,
-    winner: winner,
-  };
 };
 
 BeadRoad.prototype.getCoordsByCellNum = function (round) {
@@ -108,28 +108,17 @@ BeadRoad.prototype.clearAll = function () {
   // todo
 };
 
-/**
- *
- * ================================================
- *
- *
- * ================================================
- *
- *
- */
 BeadRoad.prototype.getBeadColor = function (winner) {
   if (winner === "BANKER") {
-    return "#228be6";
-  } else if (winner === "PLAYER") {
     return "#f03e3e";
+  } else if (winner === "PLAYER") {
+    return "#228be6";
   } else if (winner === "TIE") {
     return "#40c057";
   } else if (winner === "NONE") {
     return "none";
   }
 };
-
-BeadRoad.prototype.setCell = function (cellNum, winner) {};
 
 BeadRoad.prototype.createBoard = function () {
   if (debugBeadRoad) {
