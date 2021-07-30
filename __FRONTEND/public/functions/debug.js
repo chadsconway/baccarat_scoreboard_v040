@@ -2,7 +2,7 @@ var debugGame = false;
 var debugSprite = false;
 var debugToggle = false;
 var debugInterface = false;
-var debugBeadRoad = true;
+var debugBeadRoad = false;
 
 document.addEventListener("DOMContentLoaded", function (e) {
   let br = document.querySelector(".bead-road-svg");
