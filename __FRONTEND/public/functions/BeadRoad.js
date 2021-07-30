@@ -15,12 +15,16 @@ Cell.prototype.addRound = function (round) {
   let winner = round.winner;
 };
 */
+var BeadRoadviewBoxRef = "0 0 0 0";
 function BeadRoad(gameID) {
   this.cellList = new Array();
   this.cellList.push({ game: gameID });
   this.activeCell = 1;
   this.activeRow = 1;
   this.activeColumn = 1;
+  if (debugBeadRoad) {
+    this.activeColumn = 30;
+  }
 }
 BeadRoad.prototype.publishRound = function (winner) {
   let cell = {};
@@ -40,28 +44,43 @@ BeadRoad.prototype.publishRound = function (winner) {
 };
 BeadRoad.prototype.incrementCell = function () {
   this.activeCell++;
-  let nextCell;
-  if (this.activeColumn === 60 && this.activeRow === 6) {
-    // todo handle full bead road
-    this.shiftColumnsLeft();
-    this.activeRow = 1;
-  } else if (this.activeRow % 6 === 0) {
+  if (this.activeColumn >= 30 && this.activeRow === 6) {
+    let offset = (this.activeColumn - 29) * 55 + 5;
+    let brsvg = document.querySelector(".bead-road-svg");
+    BeadRoadviewBoxRef.x = offset;
+    brsvg.setAttribute(
+      "viewBox",
+      `${BeadRoadviewBoxRef.x} ${BeadRoadviewBoxRef.y} ${BeadRoadviewBoxRef.width} ${BeadRoadviewBoxRef.height}`
+    );
+    if (debugBeadRoad) {
+      console.log("updated viewBox offsetr = " + offset);
+      console.table(BeadRoadviewBoxRef);
+    }
+  }
+  if (this.activeRow === 6) {
     this.activeColumn++;
     this.activeRow = 1;
   } else {
     this.activeRow++;
   }
+  if (debugBeadRoad) {
+    console.log("ActiveCell = " + this.activeCell);
+    console.log("activeRow = " + this.activeRow);
+    console.log("activeColumn = " + this.activeColumn);
+  }
 };
 BeadRoad.prototype.createBead = function (winner, cell) {
   const beadcolor = this.getBeadColor(winner);
   const coords = this.getCellCoords(cell);
+  let cx = coords.x + 25;
+  let cy = coords.y + 25;
   const ns = "http://www.w3.org/2000/svg";
   // const beadsvg = document.createElementNS(ns, "svg");
   const bead = document.createElementNS(ns, "circle");
   // beadsvg.setAttribute("viewBox", "0 0 50 50");
   bead.setAttribute("fill", beadcolor);
-  bead.setAttribute("cx", 25);
-  bead.setAttribute("cy", 25);
+  bead.setAttribute("cx", cx);
+  bead.setAttribute("cy", cy);
   bead.setAttribute("r", 25);
   bead.setAttribute("x", coords.x);
   bead.setAttribute("y", coords.y);
@@ -84,8 +103,8 @@ BeadRoad.prototype.render = function () {
 BeadRoad.prototype.getCellCoords = function (cell) {
   let column = cell.c;
   let row = cell.r;
-  let x = column * 50 - 50;
-  let y = row * 50 - 50;
+  let x = column * 55 - 50;
+  let y = row * 55 - 50;
   return { x: x, y: y };
 };
 BeadRoad.prototype.shiftColumnsLeft = function () {
@@ -133,11 +152,10 @@ BeadRoad.prototype.createBoard = function () {
 
   const BEADRDwidth = 50;
   const BEADRDheight = 50;
-  const BEADRDcolumns = 30;
+  const BEADRDcolumns = 60;
   const BEADRDvisibleColumns = 30;
   const BEADRDactualWidth =
-    BEADRDvisibleColumns * (BEADRDwidth + BEADRDfakePadding) +
-    BEADRDfakePadding;
+    BEADRDcolumns * (BEADRDwidth + BEADRDfakePadding) + BEADRDfakePadding;
   const BEADRDrows = 6;
   const BEADRDcolorArray = ["#FFFFFF"];
   let BEADRDcounter = 0;
@@ -157,15 +175,25 @@ BeadRoad.prototype.createBoard = function () {
     BEADRDwidth * BEADRDcolumns + (BEADRDcolumns + 1) * BEADRDfakePadding;
   const BEADRDsvgHeight =
     BEADRDheight * BEADRDrows + (BEADRDrows + 1) * BEADRDfakePadding;
-
+  const BEADRDviewBoxWidth =
+    (BEADRDwidth + BEADRDfakePadding) * 30 + BEADRDfakePadding;
   gsap.set(BEADRDsvg, {
     attr: {
       "data-cell-number": BEADRDcellnumber,
       "data-cell-column": BEADRDcellcolumn,
       "data-cell-row": BEADRDcellrow,
-      viewBox: "0 0 " + BEADRDsvgWidth + " " + BEADRDsvgHeight,
+      viewBox: "0 0 " + BEADRDviewBoxWidth + " " + BEADRDsvgHeight,
     },
   });
+  BeadRoadviewBoxRef = {
+    x: 0,
+    y: 0,
+    width: BEADRDviewBoxWidth,
+    height: BEADRDsvgHeight,
+  };
+  if (debugBeadRoad) {
+    console.table(BeadRoadviewBoxRef);
+  }
   for (let k = 0; k < BEADRDcolumns; k++) {
     for (let m = 0; m < BEADRDrows; m++) {
       BEADRDcounter++;

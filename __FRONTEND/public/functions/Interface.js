@@ -45,6 +45,18 @@ document.addEventListener("DOMContentLoaded", function () {
     let ss = await new scoringState();
     ss.registerListener(callback());
   };
+  document.addEventListener("keydown", function (e) {
+    let key = e.key;
+    if (key === "1") {
+      handleClickBanker(e);
+    }
+    if (key === "2") {
+      handleClickPlayer(e);
+    }
+    if (key === "3") {
+      handleClickTie(e);
+    }
+  });
 
   /**
    *Mouse Events have Props:

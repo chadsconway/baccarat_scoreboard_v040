@@ -7,6 +7,8 @@ function Game() {
   this.rounds.push({ game: this.gameID });
   this.beadRoad = new BeadRoad();
   this.beadRoad.createBoard();
+  this.bigRoad = new BigRoad();
+  this.bigRoad.createBoard();
 }
 
 Game.prototype.getGameID = function () {
