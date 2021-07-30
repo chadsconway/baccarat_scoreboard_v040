@@ -91,7 +91,7 @@ app.get("/admin", (req, res) => {
  * home route
  */
 app.get("/", function (req, res) {
-  res.render("layout", { devscripts: process.env.DEVSCRIPTS });
+  res.render("layout", { devscripts: false });
 });
 /**
  * route to /user/:id? middleware
