@@ -12,8 +12,6 @@ function Stats() {
   this.tieScore.innerHTML = "0";
   this.roundsScore = document.querySelector(".rounds-score");
   this.roundsScore.innerHTML = "0";
-
-  console.log("'bankerElem = " + this.bankerElem);
 }
 Stats.prototype.updateStatsDisplay = function () {
   this.bankerScore.innerHTML = this.BANKER;

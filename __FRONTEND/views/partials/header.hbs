@@ -1,4 +1,7 @@
 <div class="header-wrapper">
+  <div class="debug">
+    <div class="debug__innerWidth"></div>
+  </div>
   <div class="row nav-row">
       <a href="" class="navbar-brand">
         Baccarat Road Analysis
@@ -10,3 +13,44 @@
     
   </div>
 </div>
+<script>
+  window.onresize = function(){
+    let iw = window.innerWidth;
+    let div = document.querySelector('.debug__innerWidth');
+    let buttonRowDiv = document.querySelector('.main-button-row');
+
+    if(debugGrid){
+    div.innerHTML = iw;
+    }
+    let section = document.querySelector('.main-grid');
+    div.innerHTML = window.innerWidth;
+    if(window.innerWidth >= 1050){
+      if(section.classList.contains('grid-container-mobile')){
+        section.classList.add('grid-container');
+        section.classList.remove('grid-container-mobile');
+       
+      }
+    }
+    if(window.innerWidth < 1050){
+      if(section.classList.contains('grid-container')){
+      section.classList.add('grid-container-mobile');
+      section.classList.remove('grid-container');
+      }
+    }
+    if(window.innerWidth >= 1050){
+      if(buttonRowDiv.classList.contains('button-row-mobile')){
+       buttonRowDiv.classList.add('button-row');
+        buttonRowDiv.classList.remove('button-row-mobile');
+      }
+    }
+    if(window.innerWidth < 1050){
+      if(buttonRowDiv.classList.contains('button-row')){
+      buttonRowDiv.classList.add('button-row-mobile');
+      buttonRowDiv.classList.remove('button-row');
+      }
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function(e){
+    window.onresize();
+  })
+</script>

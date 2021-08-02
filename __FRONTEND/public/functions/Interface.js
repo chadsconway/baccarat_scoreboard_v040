@@ -29,22 +29,15 @@ document.addEventListener("DOMContentLoaded", function () {
   function callback(functionState) {
     if (functionState === "keys") {
       if (debugToggle) {
-        console.log("keyboard input active");
+        console.log("Callback received: keyboard input active");
       }
-      document.addEventListener("keypress", function (e) {
-        if (debugInterface) {
-          console.log(e);
-        }
-      });
+    }
+    if (functionState === "mouse") {
+      if (debugToggle) {
+        console.log("Callback received: mouse input active");
+      }
     }
   }
-  /**
-   * Registering listener on state of mouse/buttons toggle
-   */
-  let scoringState = async function () {
-    let ss = await new scoringState();
-    ss.registerListener(callback());
-  };
   document.addEventListener("keydown", function (e) {
     let key = e.key;
     if (key === "1") {
