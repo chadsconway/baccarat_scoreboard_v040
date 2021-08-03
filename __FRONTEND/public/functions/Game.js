@@ -100,6 +100,7 @@ Game.prototype.publishRound = function (winner) {
   this.stats.incRounds();
   this.stats.updateStatsDisplay();
   this.beadRoad.publishRound(winner);
+  this.bigRoad.publishRound(winner);
 };
 
 Game.prototype.log = function () {

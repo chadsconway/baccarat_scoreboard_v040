@@ -1,10 +1,5 @@
 function BigRoad(gameID) {
   this.cellMap = [...this.initializeMap()];
-  if (debugBigRoad) {
-    console.log("cellMap initialized to:");
-    console.log(this.cellMap);
-  }
-
   this.activeCell = 1;
   this.activeRow = 1;
   this.activeColumn = 1;
@@ -40,48 +35,53 @@ BigRoad.prototype.publishRound = function (winner) {
     case "TIE":
       if (this.cellMap[this.activeColumn][this.activeRow].ties === false) {
         this.cellMap[this.activeColumn][this.activeRow].ties = true;
+        this.cellMap[this.activeColumn][this.activeRow].rounds.push(this.round);
         this.addTieSlash(this.activeColumn, this.activeRow);
+        this.round++;
       }
       break;
   }
   if (!flipflop && winner !== "TIE") {
-    /**
-     * check if activeCell is already in use
-     */
-    if (cellMap[this.activeColumn][this.activeRow].winner === "none") {
-      /**
-       * cell not in use place bead
-       */
+    if (this.cellMap[this.activeColumn][this.activeRow].winner === "none") {
+      this.createBRBead(this.activeColumn, this.activeRow);
+      this.cellMap[this.activeColumn][this.activeRow].winner = winner;
+      this.round++;
+    } else if (this.activeRow === 6) {
+      this.activeColumn++;
+      this.createBRBead(this.activeColumn, this.activeRow);
+      this.cellMap[this.activeColumn][this.activeRow].winner = winner;
+      this.round++;
+    } else if (
+      this.cellMap[this.activeColumn][this.activeRow + 1].winner === "none"
+    ) {
+      this.activeRow++;
+      this.createBRBead(this.activeColumn, this.activeRow);
+      this.cellMap[this.activeColumn][this.activeRow].winner = winner;
+      this.round++;
+    } else {
+      this.activeColumn++;
+      this.createBRBead(this.activeColumn, this.activeRow);
+      this.cellMap[this.activeColumn][this.activeRow].winner = winner;
+      this.round++;
+    }
+  } else if (flipflop) {
+    this.activeRow = 1;
+    if (this.cellMap[this.activeColumn][1].winner === "none") {
+      while (this.cellMap[this.activeColumn - 1][1].winner === "none") {
+        this.activeColumn--;
+      }
+      this.createBRBead(this.activeColumn, this.activeRow);
+      this.cellMap[this.activeColumn][this.activeRow].winner = winner;
+      this.round++;
+    } else {
+      this.activeColumn++;
+      this.createBRBead(this.activeColumn, this.activeRow);
+      this.cellMap[this.activeColumn][this.activeRow].winner = winner;
+      this.round++;
     }
   }
-  if (flipflop) {
-    this.activeRow = 1;
-    this.activeColumn = function () {
-      let lookfor;
-      if (this.current === "BANKER") {
-        lookfor = "PLAYER";
-      } else {
-        lookfor = "BANKER";
-      }
-      for (let i = this.round; i >= 0; i--) {
-        //  if (this.[i].winner === lookfor) {
-        //  return this.cellList[i].column + 1;
-      }
-    };
-  }
 };
-// let BRbead = this.createBead(winner, cell);
-let elem = document.querySelector(".big-road-svg");
-// elem.appendChild(BRbead);
-this.cellMap[cell.c][cell.r] = {
-  round: this.round,
-  ties: ties,
-  winner: winner,
-};
-this.incrementCell();
-if (debugToggle) {
-  console.log(ScoringState.getState());
-}
+
 BigRoad.prototype.addTieSlash = function (column, row) {
   const ns = "http://www.w3.org/2000/svg";
   let TieSlash = document.createElementNS(ns, "line");
@@ -102,19 +102,25 @@ BigRoad.prototype.addTieSlash = function (column, row) {
 
 BigRoad.prototype.createBRBead = function (column, row) {
   let coords = this.getCellCoords(column, row);
+  let cx = coords.x + 25;
+  let cy = coords.y + 25;
   const ns = "http://www.w3.org/2000/svg";
-  // const BRbeadsvg = document.createElementNS(ns, "svg");
   let BRbead = document.createElementNS(ns, "circle");
-  // BRbeadsvg.setAttribute("viewBox", "0 0 50 50");
+  let BRbeadcolor;
+  if (this.current === "BANKER") {
+    BRbeadcolor = "#f03e3e";
+  } else {
+    BRbeadcolor = "#228be6";
+  }
   BRbead.setAttribute("stroke", BRbeadcolor);
   BRbead.setAttribute("stroke-width", 5);
   BRbead.setAttribute("cx", cx);
   BRbead.setAttribute("cy", cy);
   BRbead.setAttribute("r", 20);
-  BRbead.setAttribute("x", coords.x);
-  BRbead.setAttribute("y", coords.y);
-  BRbead.setAttribute("data-BRbead-cell", cell.u);
-  BRbead.classList.add(`BRbead-cell-${cell.u}`);
+  // BRbead.setAttribute("x", coords.x);
+  // BRbead.setAttribute("y", coords.y);
+  // BRbead.setAttribute("data-BRbead-cell", cell.u);
+  // BRbead.classList.add(`BRbead-cell-${cell.u}`);
   //  BRbeadsvg.appendChild(BRbead);
   let bigroadsvg = document.querySelector(".big-road-svg");
   bigroadsvg.appendChild(BRbead);
@@ -148,26 +154,12 @@ BigRoad.prototype.clearCell = function (node, cell) {
   }
   // todo
 };
-BigRoad.prototype.clearAll = function () {
-  // todo
-};
 
-BigRoad.prototype.getBeadColor = function (winner) {
-  if (winner === "BANKER") {
-    return "#f03e3e";
-  } else if (winner === "PLAYER") {
-    return "#228be6";
-  } else if (winner === "TIE") {
-    return "#40c057";
-  } else if (winner === "NONE") {
-    return "none";
-  }
-};
 BigRoad.prototype.initializeMap = function () {
   let columns = [];
-  for (let i = 0; i < 60; i++) {
+  for (let i = 1; i <= 60; i++) {
     let row = [];
-    for (let j = 0; j < 6; j++) {
+    for (let j = 1; j <= 6; j++) {
       let cell = {
         rounds: [],
         winner: "none",
