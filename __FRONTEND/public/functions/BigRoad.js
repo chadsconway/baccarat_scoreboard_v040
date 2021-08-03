@@ -117,6 +117,7 @@ BigRoad.prototype.createBRBead = function (column, row) {
   BRbead.setAttribute("cx", cx);
   BRbead.setAttribute("cy", cy);
   BRbead.setAttribute("r", 20);
+  BRbead.setAttribute("fill", "none");
   // BRbead.setAttribute("x", coords.x);
   // BRbead.setAttribute("y", coords.y);
   // BRbead.setAttribute("data-BRbead-cell", cell.u);
@@ -127,14 +128,7 @@ BigRoad.prototype.createBRBead = function (column, row) {
 };
 
 BigRoad.prototype.getCoordsByCellNum = function (round) {
-  let cell = {};
-  cell.c = Math.floor(round / 6) + 1;
-  cell.r = round - (c - 1) * 6;
-  let coords = getCellCoords(cell);
-  return coords;
-};
-BigRoad.prototype.getCellCoords = function (column, row) {
-  let x = column * 55 - 50;
+  cellMap;
   let y = row * 55 - 50;
   return { x: x, y: y };
 };
