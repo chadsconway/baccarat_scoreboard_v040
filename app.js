@@ -22,12 +22,7 @@ var fs = require("fs");
 // var dataRoutes = require("./routes/data")
 var app = express();
 app.set("views", __dirname + "/__FRONTEND/views");
-app.set("view engine", "hbs");
-
-function handleOnChange(template) {
-  console.log("Partial " + template + " registered");
-}
-function handleDone() {
+app.set("view engine", "hbs");cellMap
   console.log("all partials registered");
 }
 
@@ -91,7 +86,7 @@ app.get("/admin", (req, res) => {
  * home route
  */
 app.get("/", function (req, res) {
-  res.render("layout", { devscripts: process.env.DEVSCRIPTS });
+  res.render("layout", { devscripts: false });
 });
 /**
  * route to /user/:id? middleware
