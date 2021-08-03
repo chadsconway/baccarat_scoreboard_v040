@@ -1,46 +1,123 @@
 function BigRoad(gameID) {
-  this.cellList = new Array();
-  this.cellList.push({ game: gameID });
+  this.cellMap = [...this.initializeMap()];
+  if (debugBigRoad) {
+    console.log("cellMap initialized to:");
+    console.log(this.cellMap);
+  }
+
   this.activeCell = 1;
   this.activeRow = 1;
   this.activeColumn = 1;
+  this.current = "NULL";
+  this.round = 1;
 }
 BigRoad.prototype.publishRound = function (winner) {
-  let cell = {};
-  cell.u = this.activeCell;
-  cell.r = this.activeRow;
-  cell.c = this.activeColumn;
-  let bead = this.createBead(winner, cell);
-  let elem = document.querySelector(".bead-road-svg");
-  elem.appendChild(bead);
-  this.cellList[cell.u] = {
-    cell: cell.u,
-    row: cell.r,
-    column: cell.c,
-    winner: winner,
-  };
-  this.incrementCell();
+  let flipflop = false;
+  switch (winner) {
+    case "BANKER":
+      if (this.current === "BANKER") {
+        break;
+      } else if (this.current === "PLAYER") {
+        flipflop = true;
+        this.current = "BANKER";
+        break;
+      } else if (this.current === "NULL") {
+        this.current = "BANKER";
+        break;
+      }
+
+    case "PLAYER":
+      if (this.current === "PLAYER") {
+        break;
+      } else if (this.current === "BANKER") {
+        flipflop = true;
+        this.current = "PLAYER";
+        break;
+      } else if (this.current === "NULL") {
+        this.current = "PLAYER";
+        break;
+      }
+    case "TIE":
+      if (this.cellMap[this.activeColumn][this.activeRow].ties === false) {
+        this.cellMap[this.activeColumn][this.activeRow].ties = true;
+        this.addTieSlash(this.activeColumn, this.activeRow);
+      }
+      break;
+  }
+  if (!flipflop && winner !== "TIE") {
+    /**
+     * check if activeCell is already in use
+     */
+    if (cellMap[this.activeColumn][this.activeRow].winner === "none") {
+      /**
+       * cell not in use place bead
+       */
+    }
+  }
+  if (flipflop) {
+    this.activeRow = 1;
+    this.activeColumn = function () {
+      let lookfor;
+      if (this.current === "BANKER") {
+        lookfor = "PLAYER";
+      } else {
+        lookfor = "BANKER";
+      }
+      for (let i = this.round; i >= 0; i--) {
+        //  if (this.[i].winner === lookfor) {
+        //  return this.cellList[i].column + 1;
+      }
+    };
+  }
+};
+// let BRbead = this.createBead(winner, cell);
+let elem = document.querySelector(".big-road-svg");
+// elem.appendChild(BRbead);
+this.cellMap[cell.c][cell.r] = {
+  round: this.round,
+  ties: ties,
+  winner: winner,
+};
+this.incrementCell();
+if (debugToggle) {
+  console.log(ScoringState.getState());
+}
+BigRoad.prototype.addTieSlash = function (column, row) {
+  const ns = "http://www.w3.org/2000/svg";
+  let TieSlash = document.createElementNS(ns, "line");
+  let coords = this.getCellCoords(column, row);
+  let x1 = coords.x + 50;
+  let x2 = coords.x;
+  let y1 = coords.y;
+  let y2 = coords.y + 50;
+  TieSlash.setAttribute("x1", x1);
+  TieSlash.setAttribute("y1", y1);
+  TieSlash.setAttribute("x2", x2);
+  TieSlash.setAttribute("y2", y2);
+  TieSlash.setAttribute("stroke", "#40c057");
+  TieSlash.setAttribute("stroke-width", 5);
+  let bigroadsvg = document.querySelector(".big-road-svg");
+  bigroadsvg.appendChild(TieSlash);
 };
 
-BigRoad.prototype.createBead = function (winner, cell) {
-  const beadcolor = this.getBeadColor(winner);
-  const coords = this.getCellCoords(cell);
-  let cx = coords.x + 25;
-  let cy = coords.y + 25;
+BigRoad.prototype.createBRBead = function (column, row) {
+  let coords = this.getCellCoords(column, row);
   const ns = "http://www.w3.org/2000/svg";
-  // const beadsvg = document.createElementNS(ns, "svg");
-  const bead = document.createElementNS(ns, "circle");
-  // beadsvg.setAttribute("viewBox", "0 0 50 50");
-  bead.setAttribute("fill", beadcolor);
-  bead.setAttribute("cx", cx);
-  bead.setAttribute("cy", cy);
-  bead.setAttribute("r", 25);
-  bead.setAttribute("x", coords.x);
-  bead.setAttribute("y", coords.y);
-  bead.setAttribute("data-bead-cell", cell.u);
-  bead.classList.add(`bead-cell-${cell.u}`);
-  //  beadsvg.appendChild(bead);
-  return bead;
+  // const BRbeadsvg = document.createElementNS(ns, "svg");
+  let BRbead = document.createElementNS(ns, "circle");
+  // BRbeadsvg.setAttribute("viewBox", "0 0 50 50");
+  BRbead.setAttribute("stroke", BRbeadcolor);
+  BRbead.setAttribute("stroke-width", 5);
+  BRbead.setAttribute("cx", cx);
+  BRbead.setAttribute("cy", cy);
+  BRbead.setAttribute("r", 20);
+  BRbead.setAttribute("x", coords.x);
+  BRbead.setAttribute("y", coords.y);
+  BRbead.setAttribute("data-BRbead-cell", cell.u);
+  BRbead.classList.add(`BRbead-cell-${cell.u}`);
+  //  BRbeadsvg.appendChild(BRbead);
+  let bigroadsvg = document.querySelector(".big-road-svg");
+  bigroadsvg.appendChild(BRbead);
 };
 
 BigRoad.prototype.getCoordsByCellNum = function (round) {
@@ -50,12 +127,7 @@ BigRoad.prototype.getCoordsByCellNum = function (round) {
   let coords = getCellCoords(cell);
   return coords;
 };
-BigRoad.prototype.render = function () {
-  let board = document.getElementById("beadroad");
-};
-BigRoad.prototype.getCellCoords = function (cell) {
-  let column = cell.c;
-  let row = cell.r;
+BigRoad.prototype.getCellCoords = function (column, row) {
   let x = column * 55 - 50;
   let y = row * 55 - 50;
   return { x: x, y: y };
@@ -64,10 +136,10 @@ BigRoad.prototype.shiftColumnsLeft = function () {
   // todo
 };
 BigRoad.prototype.clearCell = function (node, cell) {
-  let parent = document.querySelector(".bead-road-svg");
-  if (node === "bead") {
+  let parent = document.querySelector(".BRbead-road-svg");
+  if (node === "BRbead") {
     try {
-      let selector = `.bead-cell-${cell}`;
+      let selector = `.BRbead-cell-${cell}`;
       let node = document.querySelector(selector);
       parent.removeChild(node);
     } catch (err) {
@@ -90,6 +162,25 @@ BigRoad.prototype.getBeadColor = function (winner) {
   } else if (winner === "NONE") {
     return "none";
   }
+};
+BigRoad.prototype.initializeMap = function () {
+  let columns = [];
+  for (let i = 0; i < 60; i++) {
+    let row = [];
+    for (let j = 0; j < 6; j++) {
+      let cell = {
+        rounds: [],
+        winner: "none",
+        ties: false,
+      };
+      row[j] = cell;
+    }
+    columns[i] = row;
+  }
+  if (debugBigRoad) {
+    console.log(columns);
+  }
+  return columns;
 };
 
 BigRoad.prototype.createBoard = function () {
