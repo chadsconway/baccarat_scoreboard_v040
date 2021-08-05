@@ -1,6 +1,10 @@
 require("dotenv").config();
 var createError = require("http-errors");
-var devscripts = process.env.DEVSCRIPTS;
+var devscripts = false;
+if (process.env.DEVSCRIPTS !== undefined) {
+  devscripts = process.env.DEVSCRIPTS;
+}
+console.log("devscripts: " + devscripts);
 // var test1 = require("./middleware/test.1");
 var express = require("express");
 var app = express();
@@ -22,8 +26,14 @@ var fs = require("fs");
 // var dataRoutes = require("./routes/data")
 var app = express();
 app.set("views", __dirname + "/__FRONTEND/views");
-app.set("view engine", "hbs");cellMap
-  console.log("all partials registered");
+app.set("view engine", "hbs");
+console.log("all partials registered");
+
+function handleOnChange() {
+  console.log("registering partials");
+}
+function handleDone() {
+  console.log("done registering partials");
 }
 
 var opts = {
@@ -86,7 +96,7 @@ app.get("/admin", (req, res) => {
  * home route
  */
 app.get("/", function (req, res) {
-  res.render("layout", { devscripts: false });
+  res.render("layout", { devscripts: devscripts });
 });
 /**
  * route to /user/:id? middleware

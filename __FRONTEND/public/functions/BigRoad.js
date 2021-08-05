@@ -135,6 +135,12 @@ BigRoad.prototype.getCoordsByCellNum = function (round) {
 BigRoad.prototype.shiftColumnsLeft = function () {
   // todo
 };
+BigRoad.prototype.getCellCoords = function (column, row) {
+  let x = column * 55 - 50;
+  let y = row * 55 - 50;
+  return { x: x, y: y };
+};
+
 BigRoad.prototype.clearCell = function (node, cell) {
   let parent = document.querySelector(".BRbead-road-svg");
   if (node === "BRbead") {

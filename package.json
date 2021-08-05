@@ -4,7 +4,7 @@
   "version": "0.4.0",
   "private": true,
   "scripts": {
-    "dev": "./__BACKEND/server.js",
+    "dev": "node ./__BACKEND/server.js",
     "start": "./__BACKEND/server.js",
     "test": "jest"
   },
